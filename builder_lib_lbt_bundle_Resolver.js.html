@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>builder/lib/lbt/bundle/Resolver.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AbstractAdapter.html">AbstractAdapter</a><ul class='methods'><li data-type='method'><a href="AbstractAdapter.html#_byPath">_byPath</a></li><li data-type='method'><a href="AbstractAdapter.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="AbstractAdapter.html#_write">_write</a></li><li data-type='method'><a href="AbstractAdapter.html#byGlob">byGlob</a></li><li data-type='method'><a href="AbstractAdapter.html#byPath">byPath</a></li><li data-type='method'><a href="AbstractAdapter.html#write">write</a></li></ul></li><li><a href="AbstractBuilder.html">AbstractBuilder</a><ul class='methods'><li data-type='method'><a href="AbstractBuilder.html#addTask">addTask</a></li><li data-type='method'><a href="AbstractBuilder.html#build">build</a></li></ul></li><li><a href="AbstractFormatter.html">AbstractFormatter</a></li><li><a href="AbstractReader.html">AbstractReader</a><ul class='methods'><li data-type='method'><a href="AbstractReader.html#_byGlob">_byGlob</a></li><li data-type='method'><a href="AbstractReader.html#_byPath">_byPath</a></li><li data-type='method'><a href="AbstractReader.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="AbstractReader.html#byGlob">byGlob</a></li><li data-type='method'><a href="AbstractReader.html#byPath">byPath</a></li></ul></li><li><a href="AbstractReaderWriter.html">AbstractReaderWriter</a><ul class='methods'><li data-type='method'><a href="AbstractReaderWriter.html#_byGlob">_byGlob</a></li><li data-type='method'><a href="AbstractReaderWriter.html#_byPath">_byPath</a></li><li data-type='method'><a href="AbstractReaderWriter.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="AbstractReaderWriter.html#_write">_write</a></li><li data-type='method'><a href="AbstractReaderWriter.html#byGlob">byGlob</a></li><li data-type='method'><a href="AbstractReaderWriter.html#byPath">byPath</a></li><li data-type='method'><a href="AbstractReaderWriter.html#write">write</a></li></ul></li><li><a href="DuplexCollection.html">DuplexCollection</a><ul class='methods'><li data-type='method'><a href="DuplexCollection.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="DuplexCollection.html#byGlob">byGlob</a></li><li data-type='method'><a href="DuplexCollection.html#byGlobSource">byGlobSource</a></li><li data-type='method'><a href="DuplexCollection.html#byPath">byPath</a></li><li data-type='method'><a href="DuplexCollection.html#write">write</a></li></ul></li><li><a href="FileSystem.html">FileSystem</a><ul class='methods'><li data-type='method'><a href="FileSystem.html#byGlob">byGlob</a></li><li data-type='method'><a href="FileSystem.html#byPath">byPath</a></li><li data-type='method'><a href="FileSystem.html#write">write</a></li></ul></li><li><a href="Memory.html">Memory</a><ul class='methods'><li data-type='method'><a href="Memory.html#byGlob">byGlob</a></li><li data-type='method'><a href="Memory.html#byPath">byPath</a></li><li data-type='method'><a href="Memory.html#write">write</a></li></ul></li><li><a href="ReaderCollection.html">ReaderCollection</a><ul class='methods'><li data-type='method'><a href="ReaderCollection.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="ReaderCollection.html#byGlob">byGlob</a></li><li data-type='method'><a href="ReaderCollection.html#byPath">byPath</a></li></ul></li><li><a href="ReaderCollectionPrioritized.html">ReaderCollectionPrioritized</a><ul class='methods'><li data-type='method'><a href="ReaderCollectionPrioritized.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="ReaderCollectionPrioritized.html#byGlob">byGlob</a></li><li data-type='method'><a href="ReaderCollectionPrioritized.html#byPath">byPath</a></li></ul></li><li><a href="Resource.html">Resource</a><ul class='methods'><li data-type='method'><a href="Resource.html#buffer">buffer</a></li><li data-type='method'><a href="Resource.html#clone">clone</a></li><li data-type='method'><a href="Resource.html#getBuffer">getBuffer</a></li><li data-type='method'><a href="Resource.html#getPath">getPath</a></li><li data-type='method'><a href="Resource.html#getPathTree">getPathTree</a></li><li data-type='method'><a href="Resource.html#getStatInfo">getStatInfo</a></li><li data-type='method'><a href="Resource.html#getStream">getStream</a></li><li data-type='method'><a href="Resource.html#getString">getString</a></li><li data-type='method'><a href="Resource.html#pushCollection">pushCollection</a></li><li data-type='method'><a href="Resource.html#setBuffer">setBuffer</a></li><li data-type='method'><a href="Resource.html#setPath">setPath</a></li><li data-type='method'><a href="Resource.html#setStream">setStream</a></li><li data-type='method'><a href="Resource.html#setString">setString</a></li></ul></li><li><a href="Trace.html">Trace</a></li></ul><h3>Modules</h3><ul><li><a href="module-builder_builder.html">builder/builder</a><ul class='methods'><li data-type='method'><a href="module-builder_builder.html#~build">build</a></li></ul></li><li><a href="module-builder_processors_bundlers_flexChangesBundler.html">builder/processors/bundlers/flexChangesBundler</a></li><li><a href="module-builder_processors_bundlers_manifestBundler.html">builder/processors/bundlers/manifestBundler</a></li><li><a href="module-builder_processors_bundlers_moduleBundler.html">builder/processors/bundlers/moduleBundler</a></li><li><a href="module-builder_processors_debugFileCreator.html">builder/processors/debugFileCreator</a></li><li><a href="module-builder_processors_resourceCopier.html">builder/processors/resourceCopier</a></li><li><a href="module-builder_processors_stringReplacer.html">builder/processors/stringReplacer</a></li><li><a href="module-builder_processors_themeBuilder.html">builder/processors/themeBuilder</a></li><li><a href="module-builder_processors_uglifier.html">builder/processors/uglifier</a></li><li><a href="module-builder_processors_versionInfoGenerator.html">builder/processors/versionInfoGenerator</a></li><li><a href="module-builder_tasks_buildThemes.html">builder/tasks/buildThemes</a></li><li><a href="module-builder_tasks_bundlers_generateBundle.html">builder/tasks/bundlers/generateBundle</a></li><li><a href="module-builder_tasks_bundlers_generateComponentPreload.html">builder/tasks/bundlers/generateComponentPreload</a></li><li><a href="module-builder_tasks_bundlers_generateFlexChangesBundle.html">builder/tasks/bundlers/generateFlexChangesBundle</a></li><li><a href="module-builder_tasks_bundlers_generateLibraryPreload.html">builder/tasks/bundlers/generateLibraryPreload</a></li><li><a href="module-builder_tasks_bundlers_generateManifestBundle.html">builder/tasks/bundlers/generateManifestBundle</a></li><li><a href="module-builder_tasks_bundlers_generateStandaloneAppBundle.html">builder/tasks/bundlers/generateStandaloneAppBundle</a></li><li><a href="module-builder_tasks_createDebugFiles.html">builder/tasks/createDebugFiles</a></li><li><a href="module-builder_tasks_generateVersionInfo.html">builder/tasks/generateVersionInfo</a></li><li><a href="module-builder_tasks_replaceCopyright.html">builder/tasks/replaceCopyright</a></li><li><a href="module-builder_tasks_replaceVersion.html">builder/tasks/replaceVersion</a></li><li><a href="module-builder_tasks_uglify.html">builder/tasks/uglify</a></li><li><a href="module-init_init.html">init/init</a></li><li><a href="module-normalizer_normalizer.html">normalizer/normalizer</a><ul class='methods'><li data-type='method'><a href="module-normalizer_normalizer.html#~generateDependencyTree">generateDependencyTree</a></li><li data-type='method'><a href="module-normalizer_normalizer.html#~generateProjectTree">generateProjectTree</a></li></ul></li><li><a href="module-normalizer_translators_npm.html">normalizer/translators/npm</a><ul class='methods'><li data-type='method'><a href="module-normalizer_translators_npm.html#.generateDependencyTree">generateDependencyTree</a></li></ul></li><li><a href="module-normalizer_translators_static.html">normalizer/translators/static</a><ul class='methods'><li data-type='method'><a href="module-normalizer_translators_static.html#.processTree">processTree</a></li><li data-type='method'><a href="module-normalizer_translators_static.html#~generateDependencyTree">generateDependencyTree</a></li></ul></li><li><a href="module-resources_fsInterface.html">resources/fsInterface</a></li><li><a href="module-resources_resourceFactory.html">resources/resourceFactory</a><ul class='methods'><li data-type='method'><a href="module-resources_resourceFactory.html#~createAdapter">createAdapter</a></li><li data-type='method'><a href="module-resources_resourceFactory.html#~createCollectionsForTree">createCollectionsForTree</a></li><li data-type='method'><a href="module-resources_resourceFactory.html#~createResource">createResource</a></li><li data-type='method'><a href="module-resources_resourceFactory.html#~createWorkspace">createWorkspace</a></li></ul></li><li><a href="module-server_middleware_discovery.html">server/middleware/discovery</a></li><li><a href="module-server_middleware_nonReadRequests.html">server/middleware/nonReadRequests</a></li><li><a href="module-server_middleware_serveResources.html">server/middleware/serveResources</a></li><li><a href="module-server_middleware_serveThemes.html">server/middleware/serveThemes</a></li><li><a href="module-server_middleware_versionInfo.html">server/middleware/versionInfo</a></li><li><a href="module-server_server.html">server/server</a></li><li><a href="module-server_sslUtil.html">server/sslUtil</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">builder/lib/lbt/bundle/Resolver.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Takes a bundle definition and resolves it against the given pool.
+ */
+"use strict";
+
+const topologicalSort = require("../graph/topologicalSort");
+const UI5ClientConstants = require("../UI5ClientConstants");
+const ResourceFilterList = require("../resources/ResourceFilterList");
+
+const {SectionType} = require("./BundleDefinition");
+const ResolvedBundleDefinition = require("./ResolvedBundleDefinition");
+const log = require("@ui5/logger").getLogger("lbt:bundle:Resolver");
+
+let dependencyTracker;
+
+/**
+ * Resolve a bundle definition.
+ *
+ * - evaluate include / exclude filters for each section
+ * - follow dependencies, if option 'resolve' is configured for a section
+ *
+ * TODO ModuleResolver changes the order of the configured modules even if resolve isn't true
+ * @private
+ */
+class BundleResolver {
+	// private final Trace trace;
+	constructor(pool) {
+		this.pool = pool;
+	}
+	// NODE-TODO private final Map&lt;ModuleName, AbstractModuleDefinition> moduleDefinitions;
+
+	/**
+	 * @param {ModuleDefinition} bundle
+	 * @param {Map&lt;string,string>} vars
+	 * @returns {Promise&lt;ResolvedBundleDefinition>}
+	 */
+	resolve(bundle /* NODE-TODO, vars */) {
+		let visitedResources = Object.create(null);
+		let selectedResources = Object.create(null);
+		let selectedResourcesSequence = [];
+		const pool = this.pool;
+
+		/**
+		 * @param {JSModuleSectionDefinition} section
+		 * @returns {Collection&lt;ModuleName>}
+		 */
+		function collectModulesForSection(section) {
+			let filters;
+			let prevLength;
+			let newKeys;
+
+			function isAccepted(resourceName, required) {
+				let match = required;
+				// evaluate module filters only when global filters match
+				match = filters.matches(resourceName, required); // NODE-TODO filter.matches(name, match, required);
+				return match;
+			}
+
+			function isMultiModule(moduleInfo) {
+				return moduleInfo &amp;&amp; moduleInfo.subModules.length > 0 &amp;&amp; !/(?:^|\/)library.js$/.test(moduleInfo.name);
+			}
+
+			function checkAndAddResource(resourceName, depth, msg) {
+				// console.log("    checking " + resourceName + " at depth " + depth);
+				let maybeAccepted = true;
+				let done;
+
+				if ( !(resourceName in visitedResources) &amp;&amp; (maybeAccepted = isAccepted(resourceName, depth > 0)) ) {
+					// console.log("    accepted: " + resourceName );
+					if ( dependencyTracker != null ) {
+						dependencyTracker.visitDependency(resourceName);
+					}
+
+					// remember that we have seen this module already
+					visitedResources[resourceName] = resourceName;
+
+					done = pool.findResourceWithInfo(resourceName).then( function(resource) {
+						let dependencyInfo = resource &amp;&amp; resource.info;
+						let promises = [];
+
+						if ( isMultiModule(dependencyInfo) ) {
+							// multi modules are not added, only their pieces (sub modules)
+							promises = dependencyInfo.subModules.map( (included) => {
+								return checkAndAddResource(included, depth + 1,
+									"**** error: missing submodule " + included + ", included by " + resourceName);
+							});
+						} else if ( resource != null ) {
+							// trace.trace("    checking dependencies of " + resource.name );
+							selectedResources[resourceName] = resourceName;
+							selectedResourcesSequence.push(resourceName);
+
+							// trace.info("    collecting %s", resource.name);
+
+							// add dependencies, if 'resolve' is configured
+							if ( section.resolve &amp;&amp; dependencyInfo ) {
+								promises = dependencyInfo.dependencies.map( function(required) {
+									// ignore conditional dependencies if not configured
+									if ( !section.resolveConditional
+											&amp;&amp; dependencyInfo.isConditionalDependency(required) ) {
+										return;
+									}
+
+									return checkAndAddResource( required, depth + 1,
+										"**** error: missing module " + required + ", required by " + resourceName);
+								});
+							}
+
+							// add renderer, if 'renderer' is configured and if it exists
+							if ( section.renderer ) {
+								const rendererModuleName = UI5ClientConstants.getRendererName( resourceName );
+								promises.push( checkAndAddResource( rendererModuleName, depth + 1) );
+							}
+						}
+
+						return Promise.all( promises.filter( ($) => $ ) );
+					}, function(err) {
+						if ( msg ) {
+							log.error(msg);
+						}
+					}); // what todo after resource has been visited?
+
+					if ( dependencyTracker != null ) {
+						dependencyTracker.endVisitDependency(resourceName);
+					}
+				} else if ( dependencyTracker != null &amp;&amp; maybeAccepted &amp;&amp; isAccepted(resourceName, depth>0) ) {
+					// Note: the additional 'maybeAccepted' condition avoids calling the expensive 'isAccepted'
+					// twice if it already returned false in the 'if' condition
+
+					dependencyTracker.visitDependencyAgain(resourceName);
+
+					done = Promise.resolve(true);
+				}
+
+				return done;
+			}
+
+			filters = new ResourceFilterList( section.filters ); // resolvePlaceholders(section.getFilters());
+
+			let oldSelectedResources;
+			let oldIgnoredResources;
+			let oldSelectedResourcesSequence;
+
+			if ( section.mode == SectionType.Require ) {
+				oldSelectedResources = selectedResources;
+				oldIgnoredResources = visitedResources;
+				oldSelectedResourcesSequence = selectedResourcesSequence;
+				selectedResources = Object.create(null);
+				selectedResourcesSequence = [];
+				visitedResources = Object.create(null);
+			} else {
+				// remember current state of module collection - needed to determine difference set later
+				prevLength = selectedResourcesSequence.length;
+			}
+
+			/*
+			 * In the Maven version of the bundle tooling, it was possible to define the content
+			 * of a section of type 'provided' by listing a set of other bundle definition files.
+			 * The whole content of those bundles then was determined and excluded from the current bundle.
+			 *
+			 * In the NodeJS version of the tooling, this is not supported. Instead, the resulting JS file for
+			 * a bundle can be specified and the dependency analysis will determine the content of the bundle
+			 * and exclude it from the current bundle.
+			 *
+			if ( section.mode == SectionType.Provided &amp;&amp; section.modules ) {
+				throw new Error("unsupported");
+				for(ModuleName providedModuleDefinitionName : section.getProvidedModules()) {
+					AbstractModuleDefinition providedModuleDefinition =
+						moduleDefinitions.get(providedModuleDefinitionName);
+					if ( providedModuleDefinition instanceof JSModuleDefinition ) {
+						trace.verbose("    resolving provided module %s", providedModuleDefinitionName);
+						ModuleResolver resolver = new ModuleResolver(trace, pool, moduleDefinitions, null);
+						ResolvedBundleDefinition resolved = resolver.run((JSModuleDefinition) providedModuleDefinition,
+							placeholderValues);
+						for(ResolvedBundleDefinitionSection resolvedSection : resolved.getSections()) {
+							if ( resolvedSection.getMode() != SectionType.Require ) {
+								for(ModuleName providedModuleName : resolvedSection.getModules()) {
+									ModuleInfo providedModuleInfo = pool.getModuleInfo(providedModuleName);
+									if ( providedModuleInfo != null &amp;&amp;
+											!visitedModules.containsKey(providedModuleName) ) {
+										visitedModules.put(providedModuleName, providedModuleInfo);
+									}
+								}
+							}
+						}
+					} else {
+						trace.error("provided module could not be found or is not a JS module : %s",
+							providedModuleDefinitionName);
+					}
+				}
+			}
+			*/
+
+			// scan all known resources
+			let promises = pool.resources.map( function(resource) {
+				return checkAndAddResource(resource.name, 0);
+			});
+
+			return Promise.all(promises).then( function() {
+				if ( section.mode == SectionType.Require ) {
+					newKeys = selectedResourcesSequence;
+					selectedResources = oldSelectedResources;
+					visitedResources = oldIgnoredResources;
+					selectedResourcesSequence = oldSelectedResourcesSequence;
+				} else {
+					newKeys = selectedResourcesSequence.slice( prevLength ); // preserve order (for raw sections)
+				}
+
+				// console.log("    resolved module set: %s", newKeys);
+				return newKeys;
+			});
+		}
+
+		/*
+		 * In the Maven version of the bundle tooling, a bundle definition could be
+		 * parameterized by locale, ltr/rtl mode and theme. The LBT doesn't support this yet.
+		 *
+		 * As theming files are build with less now, only the parameterization by locale
+		 * might be needed. It's lack can be compensated by programmatically building the
+		 * necessary bundle definitions and e.g. injecting the locale into the Id or the
+		 * filters defining the content of the bundle.
+		 * .
+		private Collection&lt;ModuleFilter> resolvePlaceholders(Collection&lt;ModuleFilter> list) {
+			if ( !placeholderValues.isEmpty() ) {
+				List&lt;ModuleFilter> modifiedList = new ArrayList&lt;ModuleFilter>(list);
+				for(int i=0; i&lt;modifiedList.size(); i++) {
+					ModuleNameMatcher matcher = modifiedList.get(i).getMatcher();
+					ModuleNameMatcher resolved = ModuleNamePattern.resolvePlaceholders(matcher, placeholderValues);
+					if ( resolved != matcher ) {
+						modifiedList.set(i, new ModuleFilter(resolved, modifiedList.get(i).getMode()));
+					}
+				}
+				list = modifiedList;
+			}
+			return list;
+		} */
+
+		// NODE-TODO if ( PerfMeasurement.ACTIVE ) PerfMeasurement.start(PerfKeys.RESOLVE_MODULE);
+
+		if ( dependencyTracker != null ) {
+			dependencyTracker.startResolution(bundle);
+		}
+
+		// NODE-TODO placeholderValues = vars;
+
+		log.verbose("  resolving bundle definition %s", bundle.name);
+
+		let resolved = new ResolvedBundleDefinition(bundle /* , vars*/);
+
+		let previous = Promise.resolve(true);
+
+		bundle.sections.forEach(function(section, index) {
+			previous = previous.then( function() {
+				log.verbose("    resolving section%s of type %s",
+					section.name ? " '" + section.name + "'" : "", section.mode);
+
+				// NODE-TODO long t0=System.nanoTime();
+				let resolvedSection = resolved.sections[index];
+
+				return collectModulesForSection(section).
+					then( (modules) => {
+						if ( section.mode == SectionType.Raw &amp;&amp; section.sort ) {
+							// sort the modules in topological order
+							return topologicalSort(pool, modules).then( (modules) => {
+								log.verbose("      resolved modules (sorted): %s", modules);
+								return modules;
+							});
+						}
+
+						log.verbose("      resolved modules: %s", modules);
+						return modules;
+					}).then( function(modules) {
+						resolvedSection.modules = modules;
+					});
+				// NODE-TODO long t1=System.nanoTime();
+
+				// NODE-TODO if ( PerfMeasurement.ACTIVE ) trace.info("[Measurement] %12d nsec - %s", t1-t0,
+				// 												"Module collection and filtering");
+			});
+		});
+
+		if ( dependencyTracker != null ) {
+			dependencyTracker.endResolution(bundle, /* NODE-TODO, vars*/);
+		}
+
+		// NODE-TODO if ( PerfMeasurement.ACTIVE ) PerfMeasurement.stop(PerfKeys.RESOLVE_MODULE);
+
+		return previous.then( function() {
+			log.verbose("  resolving bundle done");
+
+			return resolved;
+		});
+	}
+}
+
+
+module.exports = BundleResolver;
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 14:16:40 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

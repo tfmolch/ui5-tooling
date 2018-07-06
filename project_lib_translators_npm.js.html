@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>project/lib/translators/npm.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AbstractAdapter.html">AbstractAdapter</a><ul class='methods'><li data-type='method'><a href="AbstractAdapter.html#_byPath">_byPath</a></li><li data-type='method'><a href="AbstractAdapter.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="AbstractAdapter.html#_write">_write</a></li><li data-type='method'><a href="AbstractAdapter.html#byGlob">byGlob</a></li><li data-type='method'><a href="AbstractAdapter.html#byPath">byPath</a></li><li data-type='method'><a href="AbstractAdapter.html#write">write</a></li></ul></li><li><a href="AbstractBuilder.html">AbstractBuilder</a><ul class='methods'><li data-type='method'><a href="AbstractBuilder.html#addTask">addTask</a></li><li data-type='method'><a href="AbstractBuilder.html#build">build</a></li></ul></li><li><a href="AbstractFormatter.html">AbstractFormatter</a></li><li><a href="AbstractReader.html">AbstractReader</a><ul class='methods'><li data-type='method'><a href="AbstractReader.html#_byGlob">_byGlob</a></li><li data-type='method'><a href="AbstractReader.html#_byPath">_byPath</a></li><li data-type='method'><a href="AbstractReader.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="AbstractReader.html#byGlob">byGlob</a></li><li data-type='method'><a href="AbstractReader.html#byPath">byPath</a></li></ul></li><li><a href="AbstractReaderWriter.html">AbstractReaderWriter</a><ul class='methods'><li data-type='method'><a href="AbstractReaderWriter.html#_byGlob">_byGlob</a></li><li data-type='method'><a href="AbstractReaderWriter.html#_byPath">_byPath</a></li><li data-type='method'><a href="AbstractReaderWriter.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="AbstractReaderWriter.html#_write">_write</a></li><li data-type='method'><a href="AbstractReaderWriter.html#byGlob">byGlob</a></li><li data-type='method'><a href="AbstractReaderWriter.html#byPath">byPath</a></li><li data-type='method'><a href="AbstractReaderWriter.html#write">write</a></li></ul></li><li><a href="DuplexCollection.html">DuplexCollection</a><ul class='methods'><li data-type='method'><a href="DuplexCollection.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="DuplexCollection.html#byGlob">byGlob</a></li><li data-type='method'><a href="DuplexCollection.html#byGlobSource">byGlobSource</a></li><li data-type='method'><a href="DuplexCollection.html#byPath">byPath</a></li><li data-type='method'><a href="DuplexCollection.html#write">write</a></li></ul></li><li><a href="FileSystem.html">FileSystem</a><ul class='methods'><li data-type='method'><a href="FileSystem.html#byGlob">byGlob</a></li><li data-type='method'><a href="FileSystem.html#byPath">byPath</a></li><li data-type='method'><a href="FileSystem.html#write">write</a></li></ul></li><li><a href="Memory.html">Memory</a><ul class='methods'><li data-type='method'><a href="Memory.html#byGlob">byGlob</a></li><li data-type='method'><a href="Memory.html#byPath">byPath</a></li><li data-type='method'><a href="Memory.html#write">write</a></li></ul></li><li><a href="ReaderCollection.html">ReaderCollection</a><ul class='methods'><li data-type='method'><a href="ReaderCollection.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="ReaderCollection.html#byGlob">byGlob</a></li><li data-type='method'><a href="ReaderCollection.html#byPath">byPath</a></li></ul></li><li><a href="ReaderCollectionPrioritized.html">ReaderCollectionPrioritized</a><ul class='methods'><li data-type='method'><a href="ReaderCollectionPrioritized.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="ReaderCollectionPrioritized.html#byGlob">byGlob</a></li><li data-type='method'><a href="ReaderCollectionPrioritized.html#byPath">byPath</a></li></ul></li><li><a href="Resource.html">Resource</a><ul class='methods'><li data-type='method'><a href="Resource.html#buffer">buffer</a></li><li data-type='method'><a href="Resource.html#clone">clone</a></li><li data-type='method'><a href="Resource.html#getBuffer">getBuffer</a></li><li data-type='method'><a href="Resource.html#getPath">getPath</a></li><li data-type='method'><a href="Resource.html#getPathTree">getPathTree</a></li><li data-type='method'><a href="Resource.html#getStatInfo">getStatInfo</a></li><li data-type='method'><a href="Resource.html#getStream">getStream</a></li><li data-type='method'><a href="Resource.html#getString">getString</a></li><li data-type='method'><a href="Resource.html#pushCollection">pushCollection</a></li><li data-type='method'><a href="Resource.html#setBuffer">setBuffer</a></li><li data-type='method'><a href="Resource.html#setPath">setPath</a></li><li data-type='method'><a href="Resource.html#setStream">setStream</a></li><li data-type='method'><a href="Resource.html#setString">setString</a></li></ul></li><li><a href="Trace.html">Trace</a></li></ul><h3>Modules</h3><ul><li><a href="module-builder_builder.html">builder/builder</a><ul class='methods'><li data-type='method'><a href="module-builder_builder.html#~build">build</a></li></ul></li><li><a href="module-builder_processors_bundlers_flexChangesBundler.html">builder/processors/bundlers/flexChangesBundler</a></li><li><a href="module-builder_processors_bundlers_manifestBundler.html">builder/processors/bundlers/manifestBundler</a></li><li><a href="module-builder_processors_bundlers_moduleBundler.html">builder/processors/bundlers/moduleBundler</a></li><li><a href="module-builder_processors_debugFileCreator.html">builder/processors/debugFileCreator</a></li><li><a href="module-builder_processors_resourceCopier.html">builder/processors/resourceCopier</a></li><li><a href="module-builder_processors_stringReplacer.html">builder/processors/stringReplacer</a></li><li><a href="module-builder_processors_themeBuilder.html">builder/processors/themeBuilder</a></li><li><a href="module-builder_processors_uglifier.html">builder/processors/uglifier</a></li><li><a href="module-builder_processors_versionInfoGenerator.html">builder/processors/versionInfoGenerator</a></li><li><a href="module-builder_tasks_buildThemes.html">builder/tasks/buildThemes</a></li><li><a href="module-builder_tasks_bundlers_generateBundle.html">builder/tasks/bundlers/generateBundle</a></li><li><a href="module-builder_tasks_bundlers_generateComponentPreload.html">builder/tasks/bundlers/generateComponentPreload</a></li><li><a href="module-builder_tasks_bundlers_generateFlexChangesBundle.html">builder/tasks/bundlers/generateFlexChangesBundle</a></li><li><a href="module-builder_tasks_bundlers_generateLibraryPreload.html">builder/tasks/bundlers/generateLibraryPreload</a></li><li><a href="module-builder_tasks_bundlers_generateManifestBundle.html">builder/tasks/bundlers/generateManifestBundle</a></li><li><a href="module-builder_tasks_bundlers_generateStandaloneAppBundle.html">builder/tasks/bundlers/generateStandaloneAppBundle</a></li><li><a href="module-builder_tasks_createDebugFiles.html">builder/tasks/createDebugFiles</a></li><li><a href="module-builder_tasks_generateVersionInfo.html">builder/tasks/generateVersionInfo</a></li><li><a href="module-builder_tasks_replaceCopyright.html">builder/tasks/replaceCopyright</a></li><li><a href="module-builder_tasks_replaceVersion.html">builder/tasks/replaceVersion</a></li><li><a href="module-builder_tasks_uglify.html">builder/tasks/uglify</a></li><li><a href="module-init_init.html">init/init</a></li><li><a href="module-normalizer_normalizer.html">normalizer/normalizer</a><ul class='methods'><li data-type='method'><a href="module-normalizer_normalizer.html#~generateDependencyTree">generateDependencyTree</a></li><li data-type='method'><a href="module-normalizer_normalizer.html#~generateProjectTree">generateProjectTree</a></li></ul></li><li><a href="module-normalizer_translators_npm.html">normalizer/translators/npm</a><ul class='methods'><li data-type='method'><a href="module-normalizer_translators_npm.html#.generateDependencyTree">generateDependencyTree</a></li></ul></li><li><a href="module-normalizer_translators_static.html">normalizer/translators/static</a><ul class='methods'><li data-type='method'><a href="module-normalizer_translators_static.html#.processTree">processTree</a></li><li data-type='method'><a href="module-normalizer_translators_static.html#~generateDependencyTree">generateDependencyTree</a></li></ul></li><li><a href="module-resources_fsInterface.html">resources/fsInterface</a></li><li><a href="module-resources_resourceFactory.html">resources/resourceFactory</a><ul class='methods'><li data-type='method'><a href="module-resources_resourceFactory.html#~createAdapter">createAdapter</a></li><li data-type='method'><a href="module-resources_resourceFactory.html#~createCollectionsForTree">createCollectionsForTree</a></li><li data-type='method'><a href="module-resources_resourceFactory.html#~createResource">createResource</a></li><li data-type='method'><a href="module-resources_resourceFactory.html#~createWorkspace">createWorkspace</a></li></ul></li><li><a href="module-server_middleware_discovery.html">server/middleware/discovery</a></li><li><a href="module-server_middleware_nonReadRequests.html">server/middleware/nonReadRequests</a></li><li><a href="module-server_middleware_serveResources.html">server/middleware/serveResources</a></li><li><a href="module-server_middleware_serveThemes.html">server/middleware/serveThemes</a></li><li><a href="module-server_middleware_versionInfo.html">server/middleware/versionInfo</a></li><li><a href="module-server_server.html">server/server</a></li><li><a href="module-server_sslUtil.html">server/sslUtil</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">project/lib/translators/npm.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const log = require("@ui5/logger").getLogger("normalizer:translators:npm");
+const path = require("path");
+const readPkgUp = require("read-pkg-up");
+const readPkg = require("read-pkg");
+const {promisify} = require("util");
+const fs = require("fs");
+const realpath = promisify(fs.realpath);
+const resolveModulePath = promisify(require("resolve"));
+
+class NpmTranslator {
+	constructor() {
+		this.projectCache = {};
+		this.projectsWoUi5Deps = [];
+		this.pendingDeps = {};
+	}
+
+	/*
+		Returns a promise with an array of projects
+	*/
+	async processPkg(data, parentName) {
+		const cwd = data.path;
+		const moduleName = data.name;
+		const pkg = data.pkg;
+
+		log.verbose("Analyzing %s (%s) (dependency of %s)", moduleName, cwd, parentName || "nothing - root project");
+
+		/*
+		 * 	Inject collection definitions for some known projects
+		 *	until this is either not needed anymore or added to the actual project.
+		 */
+		this.shimCollection(moduleName, pkg);
+
+		let dependencies = pkg.dependencies || {};
+		let optDependencies = pkg.devDependencies || {};
+		let version = pkg.version;
+
+		// Also look for "napa" dependencies (see https://github.com/shama/napa)
+		if (pkg.napa) {
+			Object.keys(pkg.napa).forEach((napaName) => {
+				dependencies[napaName] = pkg.napa[napaName];
+			});
+		}
+
+		const ui5Deps = pkg.ui5 &amp;&amp; pkg.ui5.dependencies;
+		if (ui5Deps &amp;&amp; ui5Deps.length) {
+			for (let i = 0; i &lt; ui5Deps.length; i++) {
+				let depName = ui5Deps[i];
+				if (!dependencies[depName] &amp;&amp; !optDependencies[depName]) {
+					throw new Error(`[npm translator] Module ${depName} is defined as UI5 dependency ` +
+						`but missing from npm dependencies of module ${moduleName}`);
+				}
+			}
+			// When UI5-dependencies are defined, we don't care whether an npm dependency is optional or not.
+			//	All UI5-dependendies need to be there.
+			dependencies = Object.assign({}, dependencies, optDependencies);
+			optDependencies = {};
+
+			for (let depName in dependencies) {
+				if (dependencies.hasOwnProperty(depName) &amp;&amp; ui5Deps.indexOf(depName) === -1) {
+					log.verbose("Ignoring npm dependency %s. Not defined in UI5-dependency configuration.", depName);
+					delete dependencies[depName];
+				}
+			}
+		} else {
+			this.projectsWoUi5Deps.push(moduleName);
+		}
+
+		/*
+			It's either a project or a collection but never both!
+
+			We don't care about dependencies of collections for now because we only remember dependencies
+			on projects.
+			Although we could add the collections dependencies as project dependencies to the related modules
+		*/
+		if (!pkg.collection) {
+			return this.getDepProjects({
+				cwd,
+				parentName: moduleName,
+				dependencies
+			}).then((depProjects) => {
+				// Array needs to be flattened because:
+				// getDepProjects returns array * 2 = array with two arrays
+				let projects = Array.prototype.concat.apply([], depProjects);
+
+				return [{
+					id: moduleName,
+					version,
+					path: cwd,
+					dependencies: projects
+				}];
+			}).then(([project]) => {
+				// Register optional dependencies as "pending" as we do not try to resolve them ourself.
+				// If we would, we would *always* resolve them for modules that are linked into monorepos.
+				// In such cases, dev-dependencies are typically always available in the node_modules directory.
+				// Therefore we register them as pending. And if any other project resolved them, we add them to
+				//	our dependencies later on.
+				this.registerPendingDependencies({
+					parentProject: project,
+					dependencies: optDependencies
+				});
+				return [project];
+			});
+		} else { // collection
+			log.verbose("Found a collection: %s", moduleName);
+			const modules = pkg.collection &amp;&amp; pkg.collection.modules || {};
+			return Promise.all(
+				Object.keys(modules).map((depName) => {
+					const modulePath = path.join(cwd, modules[depName]);
+					if (depName === parentName) { // TODO improve recursion detection here
+						log.verbose("Ignoring module with same name as parent: " + parentName);
+						return null;
+					}
+					return this.readProject({modulePath, moduleName: depName, parentName: moduleName});
+				})
+			).then((projects) => {
+				// Array needs to be flattened because:
+				//	readProject returns an array + Promise.all returns an array = array filled with arrays
+				// Filter out null values of ignored packages
+				return Array.prototype.concat.apply([], projects.filter((p) => p !== null));
+			});
+		}
+	}
+
+	getDepProjects({cwd, dependencies, parentName}) {
+		return Promise.all(
+			Object.keys(dependencies).map((moduleName) => {
+				return this.findModulePath(cwd, moduleName).then((modulePath) => {
+					return this.readProject({modulePath, moduleName, parentName});
+				});
+			})
+		).then((depProjects) => {
+			// Array needs to be flattened because:
+			//	readProject returns an array + Promise.all returns an array = array filled with arrays
+			// Filter out null values of ignored packages
+			return Array.prototype.concat.apply([], depProjects.filter((p) => p !== null));
+		});
+	}
+
+	readProject({modulePath, moduleName, parentName}) {
+		if (this.projectCache[modulePath]) {
+			return this.projectCache[modulePath];
+		}
+
+		return this.projectCache[modulePath] = readPkg(modulePath).catch((err) => {
+			// Failed to read package
+			// If dependency shim is available, fake the package
+
+			/* Disabled shimming until shim-plugin is available
+			const id = path.basename(modulePath);
+			if (pkgDependenciesShims[id]) {
+				const dependencies = JSON.parse(JSON.stringify(pkgDependenciesShims[id]));
+				return { // Fake package.json content
+					name: id,
+					dependencies,
+					version: "",
+					ui5: {
+						dependencies: Object.keys(dependencies)
+					}
+				};
+			}*/
+			throw err;
+		}).then((pkg) => {
+			return this.processPkg({
+				name: moduleName,
+				pkg: pkg,
+				path: modulePath
+			}, parentName).then((projects) => {
+				// Flatten the array of project arrays (yes, because collections)
+				return Array.prototype.concat.apply([], projects.filter((p) => p !== null));
+			});
+		}, () => {
+			// Failed to read package. Create a project anyway
+			return [{
+				id: moduleName,
+				version: "",
+				path: modulePath,
+				dependencies: []
+			}];
+		});
+	}
+
+	/* Returns path to a module
+	*/
+	findModulePath(basePath, moduleName) {
+		return resolveModulePath(moduleName + "/package.json", {
+			basedir: basePath,
+			preserveSymlinks: false
+		}).then((pkgPath) => {
+			return realpath(pkgPath);
+		}).then((pkgPath) => {
+			return path.dirname(pkgPath);
+		}).catch((err) => {
+			// Fallback: Check for a collection above this module
+			return readPkgUp({
+				cwd: path.dirname(basePath)
+			}).then((result) => {
+				if (result.pkg) {
+					const pkg = result.pkg;
+
+					// As of today, collections only exist in shims
+					this.shimCollection(pkg.name, pkg);
+					if (pkg.collection) {
+						log.verbose(
+							"Unable to locate module %s via resolve logic, but found a collection in parent hierarchy: %s",
+							moduleName, pkg.name);
+						const modules = pkg.collection.modules || {};
+						if (modules[moduleName]) {
+							const modulePath = path.join(path.dirname(result.path), modules[moduleName]);
+							log.verbose("Found module %s in that collection", moduleName);
+							return modulePath;
+						}
+						throw new Error(`Could not find module ${moduleName} in collection ${pkg.name}`);
+					}
+				}
+				throw new Error(`Could not locate module ${moduleName} via resolve logic ` +
+					`(error: ${err.message}) or in a collection`);
+			});
+		}).catch((err) => {
+			throw new Error(
+				`[npm translator] Failed to locate module ${moduleName} from ${basePath} - Error: ${err.message}`);
+		});
+	}
+
+	registerPendingDependencies({dependencies, parentProject}) {
+		Object.keys(dependencies).forEach((moduleName) => {
+			if (this.pendingDeps[moduleName]) {
+				this.pendingDeps[moduleName].parents.push(parentProject);
+			} else {
+				this.pendingDeps[moduleName] = {
+					parents: [parentProject]
+				};
+			}
+		});
+	}
+
+	processPendingDeps(tree) {
+		const queue = [tree];
+		const visited = new Set();
+
+		// Breadth-first search to prefer projects closer to root
+		while (queue.length) {
+			const project = queue.shift(); // Get and remove first entry from queue
+			if (!project.id) {
+				throw new Error("Encountered project with missing id");
+			}
+			if (visited.has(project.id)) {
+				continue;
+			}
+			visited.add(project.id);
+
+			if (this.pendingDeps[project.id]) {
+				for (let i = this.pendingDeps[project.id].parents.length - 1; i >= 0; i--) {
+					this.pendingDeps[project.id].parents[i].dependencies.push(project);
+				}
+				this.pendingDeps[project.id] = null;
+			}
+
+			if (project.dependencies) {
+				queue.push(...project.dependencies);
+			}
+		}
+		return tree;
+	}
+
+	generateDependencyTree(dirPath) {
+		return readPkgUp({
+			cwd: dirPath
+		}).then((result) => {
+			if (!result.pkg) {
+				throw new Error(
+					`[npm translator] Failed to locate package.json for directory "${path.resolve(dirPath)}"`);
+			}
+			result.name = result.pkg.name;
+			// resolved path points to the package.json, but we want just the folder path
+			result.path = path.dirname(result.path);
+			return result;
+		}).then(this.processPkg.bind(this)).then((tree) => {
+			if (this.projectsWoUi5Deps.length) {
+				log.verbose(
+					"[PERF] Consider defining UI5-dependencies in the package.json files of the relevant modules " +
+					"from the following list to improve npm translator execution time: " +
+					this.projectsWoUi5Deps.join(", "));
+			}
+
+			/*
+			By default, there is just one root project in the tree,
+			but in case a collection is returned, there are multiple roots.
+			This can only happen:
+			1. when running with a collection project as CWD
+				=> This is not intended and will throw an error as no project will match the CWD
+			2. when running in a project without a package.json within a collection project
+				=> In case the CWD matches with a project from the collection, then that
+					project is picked as root, otherwise an error is thrown
+			*/
+
+			for (let i = 0; i &lt; tree.length; i++) {
+				let rootPackage = tree[i];
+				if (path.resolve(rootPackage.path) === path.resolve(dirPath)) {
+					log.verbose("Built tree:");
+					log.verbose(rootPackage);
+					return rootPackage;
+				}
+			}
+
+			throw new Error("[npm translator] Could not identify root project.");
+		}).then(this.processPendingDeps.bind(this));
+	}
+
+	/*
+	 * 	Inject collection definitions for some known projects
+	 *	until this is either not needed anymore or added to the actual project.
+	 */
+	shimCollection(moduleName, pkg) {
+		/* Disabled shimming until shim-plugin is available
+		if (!pkg.collection &amp;&amp; pkgCollectionShims[moduleName]) {
+			pkg.collection = JSON.parse(JSON.stringify(pkgCollectionShims[moduleName]));
+		}*/
+	}
+}
+
+/**
+ * Translator for npm resources
+ *
+ * @module normalizer/translators/npm
+ */
+module.exports = {
+	/**
+	 * Generates a dependency tree for npm projects
+	 *
+	 * @param {string} dirPath Project path
+	 * @returns {Promise} Promise resolving with a dependency tree
+	 */
+	generateDependencyTree(dirPath) {
+		return new NpmTranslator().generateDependencyTree(dirPath);
+	}
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 14:16:40 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

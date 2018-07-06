@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DuplexCollection - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AbstractAdapter.html">AbstractAdapter</a><ul class='methods'><li data-type='method'><a href="AbstractAdapter.html#_byPath">_byPath</a></li><li data-type='method'><a href="AbstractAdapter.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="AbstractAdapter.html#_write">_write</a></li><li data-type='method'><a href="AbstractAdapter.html#byGlob">byGlob</a></li><li data-type='method'><a href="AbstractAdapter.html#byPath">byPath</a></li><li data-type='method'><a href="AbstractAdapter.html#write">write</a></li></ul></li><li><a href="AbstractBuilder.html">AbstractBuilder</a><ul class='methods'><li data-type='method'><a href="AbstractBuilder.html#addTask">addTask</a></li><li data-type='method'><a href="AbstractBuilder.html#build">build</a></li></ul></li><li><a href="AbstractFormatter.html">AbstractFormatter</a></li><li><a href="AbstractReader.html">AbstractReader</a><ul class='methods'><li data-type='method'><a href="AbstractReader.html#_byGlob">_byGlob</a></li><li data-type='method'><a href="AbstractReader.html#_byPath">_byPath</a></li><li data-type='method'><a href="AbstractReader.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="AbstractReader.html#byGlob">byGlob</a></li><li data-type='method'><a href="AbstractReader.html#byPath">byPath</a></li></ul></li><li><a href="AbstractReaderWriter.html">AbstractReaderWriter</a><ul class='methods'><li data-type='method'><a href="AbstractReaderWriter.html#_byGlob">_byGlob</a></li><li data-type='method'><a href="AbstractReaderWriter.html#_byPath">_byPath</a></li><li data-type='method'><a href="AbstractReaderWriter.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="AbstractReaderWriter.html#_write">_write</a></li><li data-type='method'><a href="AbstractReaderWriter.html#byGlob">byGlob</a></li><li data-type='method'><a href="AbstractReaderWriter.html#byPath">byPath</a></li><li data-type='method'><a href="AbstractReaderWriter.html#write">write</a></li></ul></li><li><a href="DuplexCollection.html">DuplexCollection</a><ul class='methods'><li data-type='method'><a href="DuplexCollection.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="DuplexCollection.html#byGlob">byGlob</a></li><li data-type='method'><a href="DuplexCollection.html#byGlobSource">byGlobSource</a></li><li data-type='method'><a href="DuplexCollection.html#byPath">byPath</a></li><li data-type='method'><a href="DuplexCollection.html#write">write</a></li></ul></li><li><a href="FileSystem.html">FileSystem</a><ul class='methods'><li data-type='method'><a href="FileSystem.html#byGlob">byGlob</a></li><li data-type='method'><a href="FileSystem.html#byPath">byPath</a></li><li data-type='method'><a href="FileSystem.html#write">write</a></li></ul></li><li><a href="Memory.html">Memory</a><ul class='methods'><li data-type='method'><a href="Memory.html#byGlob">byGlob</a></li><li data-type='method'><a href="Memory.html#byPath">byPath</a></li><li data-type='method'><a href="Memory.html#write">write</a></li></ul></li><li><a href="ReaderCollection.html">ReaderCollection</a><ul class='methods'><li data-type='method'><a href="ReaderCollection.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="ReaderCollection.html#byGlob">byGlob</a></li><li data-type='method'><a href="ReaderCollection.html#byPath">byPath</a></li></ul></li><li><a href="ReaderCollectionPrioritized.html">ReaderCollectionPrioritized</a><ul class='methods'><li data-type='method'><a href="ReaderCollectionPrioritized.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="ReaderCollectionPrioritized.html#byGlob">byGlob</a></li><li data-type='method'><a href="ReaderCollectionPrioritized.html#byPath">byPath</a></li></ul></li><li><a href="Resource.html">Resource</a><ul class='methods'><li data-type='method'><a href="Resource.html#buffer">buffer</a></li><li data-type='method'><a href="Resource.html#clone">clone</a></li><li data-type='method'><a href="Resource.html#getBuffer">getBuffer</a></li><li data-type='method'><a href="Resource.html#getPath">getPath</a></li><li data-type='method'><a href="Resource.html#getPathTree">getPathTree</a></li><li data-type='method'><a href="Resource.html#getStatInfo">getStatInfo</a></li><li data-type='method'><a href="Resource.html#getStream">getStream</a></li><li data-type='method'><a href="Resource.html#getString">getString</a></li><li data-type='method'><a href="Resource.html#pushCollection">pushCollection</a></li><li data-type='method'><a href="Resource.html#setBuffer">setBuffer</a></li><li data-type='method'><a href="Resource.html#setPath">setPath</a></li><li data-type='method'><a href="Resource.html#setStream">setStream</a></li><li data-type='method'><a href="Resource.html#setString">setString</a></li></ul></li><li><a href="Trace.html">Trace</a></li></ul><h3>Modules</h3><ul><li><a href="module-builder_builder.html">builder/builder</a><ul class='methods'><li data-type='method'><a href="module-builder_builder.html#~build">build</a></li></ul></li><li><a href="module-builder_processors_bundlers_flexChangesBundler.html">builder/processors/bundlers/flexChangesBundler</a></li><li><a href="module-builder_processors_bundlers_manifestBundler.html">builder/processors/bundlers/manifestBundler</a></li><li><a href="module-builder_processors_bundlers_moduleBundler.html">builder/processors/bundlers/moduleBundler</a></li><li><a href="module-builder_processors_debugFileCreator.html">builder/processors/debugFileCreator</a></li><li><a href="module-builder_processors_resourceCopier.html">builder/processors/resourceCopier</a></li><li><a href="module-builder_processors_stringReplacer.html">builder/processors/stringReplacer</a></li><li><a href="module-builder_processors_themeBuilder.html">builder/processors/themeBuilder</a></li><li><a href="module-builder_processors_uglifier.html">builder/processors/uglifier</a></li><li><a href="module-builder_processors_versionInfoGenerator.html">builder/processors/versionInfoGenerator</a></li><li><a href="module-builder_tasks_buildThemes.html">builder/tasks/buildThemes</a></li><li><a href="module-builder_tasks_bundlers_generateBundle.html">builder/tasks/bundlers/generateBundle</a></li><li><a href="module-builder_tasks_bundlers_generateComponentPreload.html">builder/tasks/bundlers/generateComponentPreload</a></li><li><a href="module-builder_tasks_bundlers_generateFlexChangesBundle.html">builder/tasks/bundlers/generateFlexChangesBundle</a></li><li><a href="module-builder_tasks_bundlers_generateLibraryPreload.html">builder/tasks/bundlers/generateLibraryPreload</a></li><li><a href="module-builder_tasks_bundlers_generateManifestBundle.html">builder/tasks/bundlers/generateManifestBundle</a></li><li><a href="module-builder_tasks_bundlers_generateStandaloneAppBundle.html">builder/tasks/bundlers/generateStandaloneAppBundle</a></li><li><a href="module-builder_tasks_createDebugFiles.html">builder/tasks/createDebugFiles</a></li><li><a href="module-builder_tasks_generateVersionInfo.html">builder/tasks/generateVersionInfo</a></li><li><a href="module-builder_tasks_replaceCopyright.html">builder/tasks/replaceCopyright</a></li><li><a href="module-builder_tasks_replaceVersion.html">builder/tasks/replaceVersion</a></li><li><a href="module-builder_tasks_uglify.html">builder/tasks/uglify</a></li><li><a href="module-init_init.html">init/init</a></li><li><a href="module-normalizer_normalizer.html">normalizer/normalizer</a><ul class='methods'><li data-type='method'><a href="module-normalizer_normalizer.html#~generateDependencyTree">generateDependencyTree</a></li><li data-type='method'><a href="module-normalizer_normalizer.html#~generateProjectTree">generateProjectTree</a></li></ul></li><li><a href="module-normalizer_translators_npm.html">normalizer/translators/npm</a><ul class='methods'><li data-type='method'><a href="module-normalizer_translators_npm.html#.generateDependencyTree">generateDependencyTree</a></li></ul></li><li><a href="module-normalizer_translators_static.html">normalizer/translators/static</a><ul class='methods'><li data-type='method'><a href="module-normalizer_translators_static.html#.processTree">processTree</a></li><li data-type='method'><a href="module-normalizer_translators_static.html#~generateDependencyTree">generateDependencyTree</a></li></ul></li><li><a href="module-resources_fsInterface.html">resources/fsInterface</a></li><li><a href="module-resources_resourceFactory.html">resources/resourceFactory</a><ul class='methods'><li data-type='method'><a href="module-resources_resourceFactory.html#~createAdapter">createAdapter</a></li><li data-type='method'><a href="module-resources_resourceFactory.html#~createCollectionsForTree">createCollectionsForTree</a></li><li data-type='method'><a href="module-resources_resourceFactory.html#~createResource">createResource</a></li><li data-type='method'><a href="module-resources_resourceFactory.html#~createWorkspace">createWorkspace</a></li></ul></li><li><a href="module-server_middleware_discovery.html">server/middleware/discovery</a></li><li><a href="module-server_middleware_nonReadRequests.html">server/middleware/nonReadRequests</a></li><li><a href="module-server_middleware_serveResources.html">server/middleware/serveResources</a></li><li><a href="module-server_middleware_serveThemes.html">server/middleware/serveThemes</a></li><li><a href="module-server_middleware_versionInfo.html">server/middleware/versionInfo</a></li><li><a href="module-server_server.html">server/server</a></li><li><a href="module-server_sslUtil.html">server/sslUtil</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">DuplexCollection</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        DuplexCollection
+        </h2>
+        
+            <div class="class-description">Wrapper to keep readers and writers together</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="DuplexCollection"><span class="type-signature"></span>new DuplexCollection<span class="signature">(parameters)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fs_lib_DuplexCollection.js.html">fs/lib/DuplexCollection.js</a>, <a href="fs_lib_DuplexCollection.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    The Constructor.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>parameters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>reader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="AbstractReader.html">AbstractReader</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Single reader or collection of readers</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>writer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="AbstractReaderWriter.html">AbstractReaderWriter</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">A ReaderWriter instance which is only used for writing files</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>""</code>
+                
+                </td>
+            
+
+            <td class="description last">The collection name</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="AbstractReaderWriter.html">AbstractReaderWriter</a></li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="_runGlob"><span class="type-signature">(abstract, protected) </span>_runGlob<span class="signature">(pattern, options, trace)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;<a href="Resource.html">Resource</a>>>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fs_lib_AbstractReader.js.html">fs/lib/AbstractReader.js</a>, <a href="fs_lib_AbstractReader.js.html#line91">line 91</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="AbstractReader.html#_runGlob">AbstractReader#_runGlob</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Locate resources by GLOB
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pattern</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">GLOB pattern</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">GLOB options</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>trace</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Trace.html">Trace</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Trace instance</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Promise resolving to list of resources
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Array.&lt;<a href="Resource.html">Resource</a>>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="byGlob"><span class="type-signature"></span>byGlob<span class="signature">(virPattern, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;<a href="Resource.html">Resource</a>>>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fs_lib_AbstractReader.js.html">fs/lib/AbstractReader.js</a>, <a href="fs_lib_AbstractReader.js.html#line33">line 33</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="AbstractReader.html#byGlob">AbstractReader#byGlob</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Locates resourcess by GLOB.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">Example patterns:</p>
+    
+    <pre class="prettyprint"><code>// **\u00002F*.{html,htm}
+// **\u00002F.library
+// /pony/*</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>virPattern</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">GLOB pattern as string or array of glob patterns for virtual directory structure</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last">GLOB options
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>nodir</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>true</code>
+                
+                </td>
+            
+
+            <td class="description last">Do not match directories</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Promise resolving to list of resources
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Array.&lt;<a href="Resource.html">Resource</a>>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="byGlobSource"><span class="type-signature"></span>byGlobSource<span class="signature">(virPattern, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;<a href="Resource.html">Resource</a>>>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fs_lib_DuplexCollection.js.html">fs/lib/DuplexCollection.js</a>, <a href="fs_lib_DuplexCollection.js.html#line53">line 53</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Locates resources by GLOB from source reader only.
+For found resources that are also available in the writer, the writer resource will be returned.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>virPattern</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">GLOB pattern for virtual directory structure</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last">GLOB options</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Promise resolving to list of resources
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Array.&lt;<a href="Resource.html">Resource</a>>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="byPath"><span class="type-signature"></span>byPath<span class="signature">(virPath, options)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;<a href="Resource.html">Resource</a>>>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fs_lib_AbstractReader.js.html">fs/lib/AbstractReader.js</a>, <a href="fs_lib_AbstractReader.js.html#line59">line 59</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="AbstractReader.html#byPath">AbstractReader#byPath</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Locates resources by path.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>virPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Virtual path</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Options
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>nodir</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>true</code>
+                
+                </td>
+            
+
+            <td class="description last">Do not match directories</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Promise resolving to a list of resources
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Array.&lt;<a href="Resource.html">Resource</a>>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="write"><span class="type-signature"></span>write<span class="signature">(resource)</span><span class="type-signature"> &rarr; {Promise.&lt;undefined>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fs_lib_AbstractReaderWriter.js.html">fs/lib/AbstractReaderWriter.js</a>, <a href="fs_lib_AbstractReaderWriter.js.html#line26">line 26</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="AbstractReaderWriter.html#write">AbstractReaderWriter#write</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Writes the content of a resource to a path.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>resource</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Resource.html">Resource</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The Resource to write</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Promise resolving once data has been written
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;undefined></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 14:16:41 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

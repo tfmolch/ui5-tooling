@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>project/lib/projectPreprocessor.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AbstractAdapter.html">AbstractAdapter</a><ul class='methods'><li data-type='method'><a href="AbstractAdapter.html#_byPath">_byPath</a></li><li data-type='method'><a href="AbstractAdapter.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="AbstractAdapter.html#_write">_write</a></li><li data-type='method'><a href="AbstractAdapter.html#byGlob">byGlob</a></li><li data-type='method'><a href="AbstractAdapter.html#byPath">byPath</a></li><li data-type='method'><a href="AbstractAdapter.html#write">write</a></li></ul></li><li><a href="AbstractBuilder.html">AbstractBuilder</a><ul class='methods'><li data-type='method'><a href="AbstractBuilder.html#addTask">addTask</a></li><li data-type='method'><a href="AbstractBuilder.html#build">build</a></li></ul></li><li><a href="AbstractFormatter.html">AbstractFormatter</a></li><li><a href="AbstractReader.html">AbstractReader</a><ul class='methods'><li data-type='method'><a href="AbstractReader.html#_byGlob">_byGlob</a></li><li data-type='method'><a href="AbstractReader.html#_byPath">_byPath</a></li><li data-type='method'><a href="AbstractReader.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="AbstractReader.html#byGlob">byGlob</a></li><li data-type='method'><a href="AbstractReader.html#byPath">byPath</a></li></ul></li><li><a href="AbstractReaderWriter.html">AbstractReaderWriter</a><ul class='methods'><li data-type='method'><a href="AbstractReaderWriter.html#_byGlob">_byGlob</a></li><li data-type='method'><a href="AbstractReaderWriter.html#_byPath">_byPath</a></li><li data-type='method'><a href="AbstractReaderWriter.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="AbstractReaderWriter.html#_write">_write</a></li><li data-type='method'><a href="AbstractReaderWriter.html#byGlob">byGlob</a></li><li data-type='method'><a href="AbstractReaderWriter.html#byPath">byPath</a></li><li data-type='method'><a href="AbstractReaderWriter.html#write">write</a></li></ul></li><li><a href="DuplexCollection.html">DuplexCollection</a><ul class='methods'><li data-type='method'><a href="DuplexCollection.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="DuplexCollection.html#byGlob">byGlob</a></li><li data-type='method'><a href="DuplexCollection.html#byGlobSource">byGlobSource</a></li><li data-type='method'><a href="DuplexCollection.html#byPath">byPath</a></li><li data-type='method'><a href="DuplexCollection.html#write">write</a></li></ul></li><li><a href="FileSystem.html">FileSystem</a><ul class='methods'><li data-type='method'><a href="FileSystem.html#byGlob">byGlob</a></li><li data-type='method'><a href="FileSystem.html#byPath">byPath</a></li><li data-type='method'><a href="FileSystem.html#write">write</a></li></ul></li><li><a href="Memory.html">Memory</a><ul class='methods'><li data-type='method'><a href="Memory.html#byGlob">byGlob</a></li><li data-type='method'><a href="Memory.html#byPath">byPath</a></li><li data-type='method'><a href="Memory.html#write">write</a></li></ul></li><li><a href="ReaderCollection.html">ReaderCollection</a><ul class='methods'><li data-type='method'><a href="ReaderCollection.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="ReaderCollection.html#byGlob">byGlob</a></li><li data-type='method'><a href="ReaderCollection.html#byPath">byPath</a></li></ul></li><li><a href="ReaderCollectionPrioritized.html">ReaderCollectionPrioritized</a><ul class='methods'><li data-type='method'><a href="ReaderCollectionPrioritized.html#_runGlob">_runGlob</a></li><li data-type='method'><a href="ReaderCollectionPrioritized.html#byGlob">byGlob</a></li><li data-type='method'><a href="ReaderCollectionPrioritized.html#byPath">byPath</a></li></ul></li><li><a href="Resource.html">Resource</a><ul class='methods'><li data-type='method'><a href="Resource.html#buffer">buffer</a></li><li data-type='method'><a href="Resource.html#clone">clone</a></li><li data-type='method'><a href="Resource.html#getBuffer">getBuffer</a></li><li data-type='method'><a href="Resource.html#getPath">getPath</a></li><li data-type='method'><a href="Resource.html#getPathTree">getPathTree</a></li><li data-type='method'><a href="Resource.html#getStatInfo">getStatInfo</a></li><li data-type='method'><a href="Resource.html#getStream">getStream</a></li><li data-type='method'><a href="Resource.html#getString">getString</a></li><li data-type='method'><a href="Resource.html#pushCollection">pushCollection</a></li><li data-type='method'><a href="Resource.html#setBuffer">setBuffer</a></li><li data-type='method'><a href="Resource.html#setPath">setPath</a></li><li data-type='method'><a href="Resource.html#setStream">setStream</a></li><li data-type='method'><a href="Resource.html#setString">setString</a></li></ul></li><li><a href="Trace.html">Trace</a></li></ul><h3>Modules</h3><ul><li><a href="module-builder_builder.html">builder/builder</a><ul class='methods'><li data-type='method'><a href="module-builder_builder.html#~build">build</a></li></ul></li><li><a href="module-builder_processors_bundlers_flexChangesBundler.html">builder/processors/bundlers/flexChangesBundler</a></li><li><a href="module-builder_processors_bundlers_manifestBundler.html">builder/processors/bundlers/manifestBundler</a></li><li><a href="module-builder_processors_bundlers_moduleBundler.html">builder/processors/bundlers/moduleBundler</a></li><li><a href="module-builder_processors_debugFileCreator.html">builder/processors/debugFileCreator</a></li><li><a href="module-builder_processors_resourceCopier.html">builder/processors/resourceCopier</a></li><li><a href="module-builder_processors_stringReplacer.html">builder/processors/stringReplacer</a></li><li><a href="module-builder_processors_themeBuilder.html">builder/processors/themeBuilder</a></li><li><a href="module-builder_processors_uglifier.html">builder/processors/uglifier</a></li><li><a href="module-builder_processors_versionInfoGenerator.html">builder/processors/versionInfoGenerator</a></li><li><a href="module-builder_tasks_buildThemes.html">builder/tasks/buildThemes</a></li><li><a href="module-builder_tasks_bundlers_generateBundle.html">builder/tasks/bundlers/generateBundle</a></li><li><a href="module-builder_tasks_bundlers_generateComponentPreload.html">builder/tasks/bundlers/generateComponentPreload</a></li><li><a href="module-builder_tasks_bundlers_generateFlexChangesBundle.html">builder/tasks/bundlers/generateFlexChangesBundle</a></li><li><a href="module-builder_tasks_bundlers_generateLibraryPreload.html">builder/tasks/bundlers/generateLibraryPreload</a></li><li><a href="module-builder_tasks_bundlers_generateManifestBundle.html">builder/tasks/bundlers/generateManifestBundle</a></li><li><a href="module-builder_tasks_bundlers_generateStandaloneAppBundle.html">builder/tasks/bundlers/generateStandaloneAppBundle</a></li><li><a href="module-builder_tasks_createDebugFiles.html">builder/tasks/createDebugFiles</a></li><li><a href="module-builder_tasks_generateVersionInfo.html">builder/tasks/generateVersionInfo</a></li><li><a href="module-builder_tasks_replaceCopyright.html">builder/tasks/replaceCopyright</a></li><li><a href="module-builder_tasks_replaceVersion.html">builder/tasks/replaceVersion</a></li><li><a href="module-builder_tasks_uglify.html">builder/tasks/uglify</a></li><li><a href="module-init_init.html">init/init</a></li><li><a href="module-normalizer_normalizer.html">normalizer/normalizer</a><ul class='methods'><li data-type='method'><a href="module-normalizer_normalizer.html#~generateDependencyTree">generateDependencyTree</a></li><li data-type='method'><a href="module-normalizer_normalizer.html#~generateProjectTree">generateProjectTree</a></li></ul></li><li><a href="module-normalizer_translators_npm.html">normalizer/translators/npm</a><ul class='methods'><li data-type='method'><a href="module-normalizer_translators_npm.html#.generateDependencyTree">generateDependencyTree</a></li></ul></li><li><a href="module-normalizer_translators_static.html">normalizer/translators/static</a><ul class='methods'><li data-type='method'><a href="module-normalizer_translators_static.html#.processTree">processTree</a></li><li data-type='method'><a href="module-normalizer_translators_static.html#~generateDependencyTree">generateDependencyTree</a></li></ul></li><li><a href="module-resources_fsInterface.html">resources/fsInterface</a></li><li><a href="module-resources_resourceFactory.html">resources/resourceFactory</a><ul class='methods'><li data-type='method'><a href="module-resources_resourceFactory.html#~createAdapter">createAdapter</a></li><li data-type='method'><a href="module-resources_resourceFactory.html#~createCollectionsForTree">createCollectionsForTree</a></li><li data-type='method'><a href="module-resources_resourceFactory.html#~createResource">createResource</a></li><li data-type='method'><a href="module-resources_resourceFactory.html#~createWorkspace">createWorkspace</a></li></ul></li><li><a href="module-server_middleware_discovery.html">server/middleware/discovery</a></li><li><a href="module-server_middleware_nonReadRequests.html">server/middleware/nonReadRequests</a></li><li><a href="module-server_middleware_serveResources.html">server/middleware/serveResources</a></li><li><a href="module-server_middleware_serveThemes.html">server/middleware/serveThemes</a></li><li><a href="module-server_middleware_versionInfo.html">server/middleware/versionInfo</a></li><li><a href="module-server_server.html">server/server</a></li><li><a href="module-server_sslUtil.html">server/sslUtil</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">project/lib/projectPreprocessor.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const log = require("@ui5/logger").getLogger("normalizer:projectPreprocessor");
+const fs = require("graceful-fs");
+const path = require("path");
+const {promisify} = require("util");
+const readFile = promisify(fs.readFile);
+const parseYaml = require("js-yaml").safeLoad;
+const typeRepository = require("@ui5/builder").types.typeRepository;
+
+class ProjectPreprocessor {
+	/*
+		Adapt and enhance the project tree:
+			- Replace duplicate projects further away from the root with those closed to the root
+			- Add configuration to projects
+	*/
+	async processTree(tree) {
+		const processedProjects = {};
+		const queue = [{
+			project: tree,
+			parent: null,
+			level: 0
+		}];
+		const configPromises = [];
+		let startTime;
+		if (log.isLevelEnabled("verbose")) {
+			startTime = process.hrtime();
+		}
+
+		// Breadth-first search to prefer projects closer to root
+		while (queue.length) {
+			const {project, parent, level} = queue.shift(); // Get and remove first entry from queue
+			if (!project.id) {
+				throw new Error("Encountered project with missing id");
+			}
+			project._level = level;
+
+			// Check whether project ID is already known
+			const processedProject = processedProjects[project.id];
+			if (processedProject) {
+				if (processedProject.ignored) {
+					log.verbose(`Dependency of project ${parent.id}, "${project.id}" is flagged as ignored.`);
+					parent.dependencies.splice(parent.dependencies.indexOf(project), 1);
+					continue;
+				}
+				log.verbose(`Dependency of project ${parent.id}, "${project.id}": Distance to root of ${level}. Will be `+
+					`replaced by project with same ID and distance to root of ${processedProject.project._level}.`);
+
+				// Replace with the already processed project (closer to root -> preferred)
+				parent.dependencies[parent.dependencies.indexOf(project)] = processedProject.project;
+				processedProject.parents.push(parent);
+
+				// No further processing needed
+				continue;
+			}
+
+			processedProjects[project.id] = {
+				project,
+				// If a project is referenced multiple times in the dependency tree,
+				//	it is replaced with the occurrence closest to the root.
+				// Here we collect the different parents, this single project configuration then has
+				parents: [parent]
+			};
+
+			configPromises.push(this.configureProject(project).then((config) => {
+				if (!config) {
+					if (project === tree) {
+						throw new Error(`Failed to configure root project "${project.id}". Please check verbose log for details.`);
+					}
+
+					// No config available
+					// => reject this project by removing it from its parents list of dependencies
+					log.verbose(`Ignoring project ${project.id} with missing configuration `+
+						"(might be a non-UI5 dependency)");
+					const parents = processedProjects[project.id].parents;
+					for (let i = parents.length - 1; i >= 0; i--) {
+						parents[i].dependencies.splice(parents[i].dependencies.indexOf(project), 1);
+					}
+					processedProjects[project.id] = {ignored: true};
+				}
+			}));
+
+			if (project.dependencies) {
+				queue.push(...project.dependencies.map((depProject) => {
+					return {
+						project: depProject,
+						parent: project,
+						level: level + 1
+					};
+				}));
+			}
+		}
+		return Promise.all(configPromises).then(() => {
+			if (log.isLevelEnabled("verbose")) {
+				const prettyHrtime = require("pretty-hrtime");
+				const timeDiff = process.hrtime(startTime);
+				log.verbose(`Processed ${Object.keys(processedProjects).length} projects in ${prettyHrtime(timeDiff)}`);
+			}
+			return tree;
+		});
+	}
+
+	async configureProject(project) {
+		if (!project.specVersion) { // Project might already be configured (e.g. via inline configuration)
+			// Currently, specVersion is the indicator for configured projects
+			const projectConf = await this.getProjectConfiguration(project);
+
+			if (!projectConf) {
+				return null;
+			}
+			// Enhance project with its configuration
+			Object.assign(project, projectConf);
+		}
+
+		if (!project.specVersion) {
+			if (project._level === 0) {
+				throw new Error(`No specification version defined for root project ${project.id}`);
+			}
+			log.verbose(`No specification version defined for project ${project.id}`);
+			return; // return with empty config
+		}
+
+		if (project.specVersion !== "0.1") {
+			throw new Error(
+				`Invalid specification version defined for project ${project.id}: ${project.specVersion}. ` +
+				"The currently only allowed version is \"0.1\"");
+		}
+
+		if (!project.type) {
+			if (project._level === 0) {
+				throw new Error(`No type configured for root project ${project.id}`);
+			}
+			log.verbose(`No type configured for project ${project.id} (neither in project configuration, nor in any shim)`);
+			return; // return with empty config
+		}
+
+		if (project.type === "application" &amp;&amp; project._level !== 0) {
+			// There is only one project of type application allowed
+			// That project needs to be the root project
+			log.verbose(`[Warn] Ignoring project ${project.id} with type application`+
+					` (distance to root: ${project._level}). Type application is only allowed for the root project`);
+			return; // return with empty config
+		}
+
+		// Apply type
+		await this.applyType(project);
+		return project;
+	}
+
+	async getProjectConfiguration(project) {
+		// A projects configPath property takes precedence over the default "&lt;projectPath>/ui5.yaml" path
+		const configPath = project.configPath || path.join(project.path, "/ui5.yaml");
+
+		let config;
+		try {
+			config = await this.readConfigFile(configPath);
+		} catch (err) {
+			const errorText = "Failed to read configuration for project " +
+					`${project.id} at "${configPath}". Error: ${err.message}`;
+
+			if (err.code !== "ENOENT") { // Something else than "File or directory does not exist"
+				throw new Error(errorText);
+			}
+			log.verbose(errorText);
+
+			/* Disabled shimming until shim-plugin is available
+			// If there is a config shim, use it as fallback
+			if (configShims[project.id]) {
+				// It's ok if there is no project configuration in the project if there is a shim for it
+				log.verbose(`Applying shim for project ${project.id}...`);
+				config = JSON.parse(JSON.stringify(configShims[project.id]));
+			} else {
+				// No configuration available -> return empty config
+				return null;
+			}*/
+		}
+
+		return config;
+	}
+
+	async readConfigFile(configPath) {
+		const configFile = await readFile(configPath);
+		return parseYaml(configFile, {
+			filename: path
+		});
+	}
+
+	async applyType(project) {
+		let type = typeRepository.getType(project.type);
+		return type.format(project);
+	}
+}
+
+/**
+ * The Project Preprocessor enriches the dependency information with project configuration
+ *
+ * @module normalizer/translators/static
+ */
+module.exports = {
+	/**
+	 * Collects project information and its dependencies to enrich it with project configuration
+	 *
+	 * @param {Object} tree Dependency tree of the project
+	 * @returns {Promise} Promise resolving with the dependency tree and enriched project configuration
+	 */
+	processTree: function(tree) {
+		return new ProjectPreprocessor().processTree(tree);
+	}
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 14:16:40 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
