@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>builder/tasks/uglify - Documentation</title>
+    <title>builder/tasks/generateLibraryManifest - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">builder/tasks/uglify</h1>
+    <h1 class="page-title">builder/tasks/generateLibraryManifest</h1>
     
 
     
@@ -49,7 +49,7 @@
     <div class="container-overview">
     
         
-            <div class="description">Task to minify resources.</div>
+            <div class="description">Task for creating a library manifest.json from its .library file.</div>
         
 
         
@@ -63,7 +63,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builder_lib_tasks_uglify.js.html">builder/lib/tasks/uglify.js</a>, <a href="builder_lib_tasks_uglify.js.html#line3">line 3</a>
+        <a href="builder_lib_tasks_generateLibraryManifest.js.html">builder/lib/tasks/generateLibraryManifest.js</a>, <a href="builder_lib_tasks_generateLibraryManifest.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -202,6 +202,29 @@
 
         <tr>
             
+                <td class="name"><code>dependencies</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="AbstractReader.html">AbstractReader</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Reader or Collection to read dependency files</td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>options</code></td>
             
 
@@ -244,7 +267,7 @@
 
         <tr>
             
-                <td class="name"><code>pattern</code></td>
+                <td class="name"><code>projectName</code></td>
             
 
             <td class="type">
@@ -260,7 +283,7 @@
 
             
 
-            <td class="description last">Pattern to locate the files to be processed</td>
+            <td class="description last">Project name</td>
         </tr>
 
     

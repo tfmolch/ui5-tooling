@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>builder/tasks/uglify - Documentation</title>
+    <title>builder/lib/lbt/utils/ASTUtils.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,321 +27,137 @@
 
 <div id="main">
     
-    <h1 class="page-title">builder/tasks/uglify</h1>
+    <h1 class="page-title">builder/lib/lbt/utils/ASTUtils.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description">Task to minify resources.</div>
-        
-
-        
-            
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builder_lib_tasks_uglify.js.html">builder/lib/tasks/uglify.js</a>, <a href="builder_lib_tasks_uglify.js.html#line3">line 3</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>parameters</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Parameters
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>workspace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="DuplexCollection.html">DuplexCollection</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">DuplexCollection to read and write files</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Options
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>pattern</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Pattern to locate the files to be processed</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Promise resolving with <code>undefined</code> once data has been written
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;undefined></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+const {Syntax} = require("esprima");
+
+/**
+ * Checks whether the given node is a string literal.
+ *
+ * If second parameter 'literal' is given, the value of the node is additionally compared with that literal.
+ * @private
+ * @param {ESTree} node
+ * @param {string} [literal]
+ * @returns {boolean} Whether the node is a literal and whether its value mtahces the given string
+ */
+function isString(node, literal) {
+	if ( node == null || node.type !== Syntax.Literal || typeof node.value !== "string" ) {
+		return false;
+	}
+	return literal == null ? true : node.value === literal;
+}
+
+function isMethodCall(node, methodPath) {
+	if ( node.type != Syntax.CallExpression ) {
+		return false;
+	}
+
+	// BYFIELD ( BYFIELD ( BYFIELD ( a, b), c), d)
+	return isNamedObject(node.callee, methodPath, methodPath.length);
+}
+
+function isNamedObject(node, objectPath, length) {
+	// console.log("checking for named object ", node, objectPath, length);
+	while ( length > 1
+			&amp;&amp; node.type == Syntax.MemberExpression
+			&amp;&amp; isIdentifier(node.property, objectPath[length-1]) ) {
+		node = node.object;
+		length--;
+	}
+	return length == 1 &amp;&amp; isIdentifier(node, objectPath[0]);
+}
+
+function isIdentifier(node, name) {
+	if ( node.type != Syntax.Identifier ) {
+		return false;
+	}
+	if ( typeof name == "string" ) {
+		return name === node.name;
+	}
+	for (let i = 0; i &lt; name.length; i++) {
+		if ( name[i] === node.name || name[i] === "*" ) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function getPropertyKey(property) {
+	if ( property.key.type === Syntax.Identifier ) {
+		return property.key.name;
+	} else if ( property.key.type === Syntax.Literal ) {
+		return String(property.key.value);
+	} else {
+		throw new Error();
+	}
+}
+
+function findOwnProperty(obj, name) {
+	const property = obj &amp;&amp; obj.properties.find((property) => getPropertyKey(property) === name);
+	return property &amp;&amp; property.value;
+}
+
+function getValue(obj, names) {
+	let i = 0;
+	while ( i &lt; names.length ) {
+		if ( obj == null || obj.type !== Syntax.ObjectExpression ) {
+			return null;
+		}
+		obj = findOwnProperty(obj, names[i++]);
+	}
+	return obj;
+}
+
+/**
+ * Converts an AST node of type 'ArrayExpression' into an array of strings,
+ * assuming that each item in the array literal is a string literal.
+ *
+ * Depending on the parameter skipNonStringLiterals, unexpected items
+ * in the array are either ignored or cause the method to fail with
+ * a TypeError.
+ *
+ * @param {ESTree} array
+ * @param {boolean } skipNonStringLiterals
+ * @throws {TypeError}
+ * @returns {string[]}
+ */
+function getStringArray(array, skipNonStringLiterals) {
+	return array.elements.reduce( (result, item) => {
+		if ( isString(item) ) {
+			result.push(item.value);
+		} else if ( !skipNonStringLiterals ) {
+			throw new TypeError("array element is not a string literal:" + item.type);
+		}
+		return result;
+	}, []);
+}
+
+module.exports = {
+	isString,
+	isMethodCall,
+	isNamedObject,
+	isIdentifier,
+	getLocation: function() {
+		return ""; // NODE-TODO
+	},
+	getPropertyKey,
+	findOwnProperty,
+	getValue,
+	getStringArray
+};
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -351,7 +167,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 15:10:49 GMT+0000 (UTC) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 15:10:48 GMT+0000 (UTC) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

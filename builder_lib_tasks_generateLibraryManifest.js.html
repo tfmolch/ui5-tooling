@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>builder/tasks/uglify - Documentation</title>
+    <title>builder/lib/tasks/generateLibraryManifest.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,321 +27,84 @@
 
 <div id="main">
     
-    <h1 class="page-title">builder/tasks/uglify</h1>
+    <h1 class="page-title">builder/lib/tasks/generateLibraryManifest.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description">Task to minify resources.</div>
-        
-
-        
-            
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builder_lib_tasks_uglify.js.html">builder/lib/tasks/uglify.js</a>, <a href="builder_lib_tasks_uglify.js.html#line3">line 3</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>parameters</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Parameters
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>workspace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="DuplexCollection.html">DuplexCollection</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">DuplexCollection to read and write files</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Options
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>pattern</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Pattern to locate the files to be processed</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Promise resolving with <code>undefined</code> once data has been written
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;undefined></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+const log = require("@ui5/logger").getLogger("builder:tasks:generateLibraryManifest");
+const manifestCreator = require("../processors/manifestCreator");
+const ReaderCollectionPrioritized = require("@ui5/fs").ReaderCollectionPrioritized;
+
+
+/**
+ * Task for creating a library manifest.json from its .library file.
+ *
+ * @module builder/tasks/generateLibraryManifest
+ * @param {Object} parameters Parameters
+ * @param {DuplexCollection} parameters.workspace DuplexCollection to read and write files
+ * @param {AbstractReader} parameters.dependencies Reader or Collection to read dependency files
+ * @param {Object} parameters.options Options
+ * @param {string} parameters.options.projectName Project name
+ * @returns {Promise&lt;undefined>} Promise resolving with &lt;code>undefined&lt;/code> once data has been written
+ */
+module.exports = function({workspace, dependencies, options}) {
+	const combo = new ReaderCollectionPrioritized({
+		name: `libraryManifestGenerator - prioritize workspace over dependencies: ${options.projectName}`,
+		readers: [workspace, dependencies]
+	});
+	// Note:
+	// *.library files are needed to identify libraries
+	// *.json files are needed to avoid overwriting them
+	// *.js files are needed to identify nested components
+	// *.less, *.css, *.theming and *.theme files are needed to identify supported themes
+	return combo.byGlob("/**/*.{js,json,library,less,css,theming,theme}").then((resources) => {
+		// Find all libraries and create a manifest.json file
+		return workspace.byGlob("/resources/**/.library").then((libraryIndicatorResources) => {
+			if (libraryIndicatorResources.length &lt; 1) {
+				// No library found - nothing to do
+				log.verbose(`Could not find a ".library" file for project ${options.projectName}. Skipping library manifest generation.`);
+				return;
+			}
+
+			return Promise.all(libraryIndicatorResources.map((libraryIndicatorResource) => {
+				// Determine library namespace from library indicator file path
+				// ending with ".library"
+				// e.g. /resources/sap/foo/.library => sap/foo
+				const libraryNamespacePattern = /^\/resources\/(.*)\/\.library$/;
+				const libraryIndicatorPath = libraryIndicatorResource.getPath();
+				const libraryNamespaceMatch = libraryIndicatorPath.match(libraryNamespacePattern);
+				if (libraryNamespaceMatch &amp;&amp; libraryNamespaceMatch[1]) {
+					const libraryNamespace = libraryNamespaceMatch[1];
+					return manifestCreator({
+						libraryResource: libraryIndicatorResource,
+						namespace: libraryNamespace,
+						resources,
+						options: {
+						}
+					}).then((manifest) => {
+						if (manifest) {
+							return workspace.write(manifest);
+						}
+					});
+				} else {
+					log.verbose(`Could not determine library namespace from file "${libraryIndicatorPath}" for project ${options.projectName}. Skipping library manifest generation.`);
+					return Promise.resolve();
+				}
+			}));
+		});
+	});
+};
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -351,7 +114,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 15:10:49 GMT+0000 (UTC) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 06 2018 15:10:48 GMT+0000 (UTC) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
