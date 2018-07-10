@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>builder/tasks/buildThemes - Documentation</title>
+    <title>server/middleware/serveIndex - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">builder/tasks/buildThemes</h1>
+    <h1 class="page-title">server/middleware/serveIndex</h1>
     
 
     
@@ -49,7 +49,7 @@
     <div class="container-overview">
     
         
-            <div class="description">Task to build a library theme.</div>
+            <div class="description">Creates and returns the middleware to serve a resource index.</div>
         
 
         
@@ -63,7 +63,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builder_lib_tasks_buildThemes.js.html">builder/lib/tasks/buildThemes.js</a>, <a href="builder_lib_tasks_buildThemes.js.html#line5">line 5</a>
+        <a href="server_lib_middleware_serveIndex.js.html">server/lib/middleware/serveIndex.js</a>, <a href="server_lib_middleware_serveIndex.js.html#line131">line 131</a>
     </li></ul></dd>
     
 
@@ -137,7 +137,7 @@
 
         <tr>
             
-                <td class="name"><code>parameters</code></td>
+                <td class="name"><code>resourceCollections</code></td>
             
 
             <td class="type">
@@ -153,7 +153,7 @@
 
             
 
-            <td class="description last">Parameters
+            <td class="description last">Contains the resource reader or collection to access project related files
                 <h6>Properties</h6>
                 
 
@@ -179,30 +179,7 @@
 
         <tr>
             
-                <td class="name"><code>workspace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="DuplexCollection.html">DuplexCollection</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">DuplexCollection to read and write files</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>dependencies</code></td>
+                <td class="name"><code>combo</code></td>
             
 
             <td class="type">
@@ -218,79 +195,7 @@
 
             
 
-            <td class="description last">Reader or Collection to read dependency files</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Options
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>pattern</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Pattern to locate the files to be processed</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last">Resource collection which contains the workspace and the project dependencies</td>
         </tr>
 
     
@@ -321,7 +226,7 @@
 
         
 <div class="param-desc">
-    Promise resolving with <code>undefined</code> once data has been written
+    Returns a server middleware closure.
 </div>
 
 
@@ -332,7 +237,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;undefined></span>
+<span class="param-type">function</span>
 
 
     </dd>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>builder/tasks/buildThemes - Documentation</title>
+    <title>server/lib/middleware/serveIndex.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,344 +27,180 @@
 
 <div id="main">
     
-    <h1 class="page-title">builder/tasks/buildThemes</h1>
+    <h1 class="page-title">server/lib/middleware/serveIndex.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description">Task to build a library theme.</div>
-        
-
-        
-            
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="builder_lib_tasks_buildThemes.js.html">builder/lib/tasks/buildThemes.js</a>, <a href="builder_lib_tasks_buildThemes.js.html#line5">line 5</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>parameters</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Parameters
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>workspace</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="DuplexCollection.html">DuplexCollection</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">DuplexCollection to read and write files</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>dependencies</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="AbstractReader.html">AbstractReader</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Reader or Collection to read dependency files</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Options
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>pattern</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Pattern to locate the files to be processed</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Promise resolving with <code>undefined</code> once data has been written
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;undefined></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const log = require("@ui5/logger").getLogger("server:middleware:serveIndex");
+const mime = require("mime-types");
+
+const rProperties = /\.properties$/;
+
+const KB = 1024;
+const MB = KB * KB;
+const GB = KB * KB * KB;
+
+/**
+ * Returns the mime type of the given resource
+ *
+ * @param {Resource} resource the resource
+ * @returns {String} mime type
+ */
+function getMimeType(resource) {
+	if (rProperties.test(resource.getPath())) {
+		return "text/plain;charset=ISO-8859-1";
+	} else {
+		return mime.lookup(resource.getPath()) || "application/octet-stream";
+	}
+}
+
+/**
+ * Converts the given bytes into a proper human readable size
+ *
+ * @param {Number} bytes bytes
+ * @returns {String} human readable size
+ */
+function formatSize(bytes) {
+	let result;
+	if (bytes &lt; KB) {
+		result = bytes + " Bytes";
+	} else if (bytes &lt; MB) {
+		result = Number.parseFloat(bytes / KB).toFixed(2) + " KB";
+	} else if (bytes &lt; GB) {
+		result = Number.parseFloat(bytes / MB).toFixed(2) + " MB";
+	} else {
+		result = Number.parseFloat(bytes / GB).toFixed(2) + " GB";
+	}
+	return result;
+}
+
+/**
+ * Creates a resource info object which is used to create the HTML
+ * content for the resource listing
+ *
+ * @param {Resource} resource the resource to convert
+ * @returns {Object} resource info object
+ */
+function createResourceInfo(resource) {
+	let stat = resource.getStatInfo();
+	let isDir = stat.isDirectory();
+	let resInfo = {
+		path: resource.getPath() + (isDir ? "/" : ""),
+		name: resource._name + (isDir ? "/" : ""),
+		isDir: isDir,
+		mimetype: isDir ? "" : getMimeType(resource),
+		lastModified: new Date(stat.mtime).toLocaleString(),
+		size: formatSize(stat.size),
+		sizeInBytes: stat.size,
+		// TODO: project as public API of FS?
+		project: resource._project ? resource._project.id : "&lt;unknown>",
+		projectPath: resource._project ? resource._project.path : "&lt;unknown>"
+	};
+	return resInfo;
+}
+
+/**
+ * Creates a resource info array from the given resource array
+ *
+ * @param {Resource[]} resources an array of resources
+ * @returns {Object[]} sorted array of resource infos
+ */
+function createResourceInfos(resources) {
+	return resources.map((item, i) => {
+		return createResourceInfo(item);
+	}).sort((a, b) => {
+		if (a.isDir &amp;&amp; !b.isDir) {
+			return -1;
+		} else if (!a.isDir &amp;&amp; b.isDir) {
+			return 1;
+		} else {
+			// numbers will be sorted by name as string like the FS does!
+			return a.name.localeCompare(b.name);
+		}
+	});
+}
+
+/**
+ * Creates the HTML content for the resource listing
+ *
+ * @param {String} path the path
+ * @param {Object[]} resourceInfos an array of resource infos
+ * @returns {String} HTML content for the resource listing
+ */
+function createContent(path, resourceInfos) {
+	return `&lt;!DOCTYPE html>
+	&lt;html>
+		&lt;head>
+			&lt;title>Index of ${path}&lt;/title>
+			&lt;style>
+				body, table { font-family: Courier New; font-size: 9pt; margin: 3px; padding: 0; background-color: white; color: black; }
+				h1 { padding: 1px 10px; font-size: 16pt; }
+				table, tr, th, td { border: none; border-collapse: collapse; }
+				th, td {padding: 1px 10px; text-align: left; }
+			&lt;/style>
+		&lt;/head>
+		&lt;body>
+		&lt;h1>Index of ${path}&lt;/h1>
+		&lt;table>
+			&lt;thead>&lt;tr>&lt;th>&lt;/th>&lt;th>&amp;lt;DIR&amp;gt;&lt;/th>&lt;th>&lt;/th>&lt;th>&lt;a href="..">..&lt;/a>&lt;/th>&lt;th>&lt;/th>&lt;/tr>&lt;/thead>
+			&lt;tbody>
+			${resourceInfos.map((info, i) => `
+			&lt;tr${i % 2 == 1 ? " class=\"alternate\"" : ""}>
+				&lt;td>${info.lastModified}&lt;/td>
+				&lt;td>${info.isDir ? "&amp;lt;DIR&amp;gt;" : ""}&lt;/td>
+				&lt;td${info.isDir ? ">" : " title=\"" + info.sizeInBytes + " Bytes\">" + info.size}&lt;/td>
+				&lt;td>&lt;a href="${info.path}">${info.name}&lt;/a>&lt;/td>
+				&lt;td>${info.mimetype}&lt;/td>
+				&lt;td>&lt;a href="file:////${info.projectPath}" title="${info.projectPath}">${info.project}&lt;/a>&lt;/td>
+			&lt;/tr>
+			`).join("")}
+			&lt;/tbody>
+		&lt;/table>
+		&lt;/body>
+	&lt;/html>
+	`;
+}
+
+/**
+ * Creates and returns the middleware to serve a resource index.
+ *
+ * @module server/middleware/serveIndex
+ * @param {Object} resourceCollections Contains the resource reader or collection to access project related files
+ * @param {AbstractReader} resourceCollections.combo Resource collection which contains the workspace and the project dependencies
+ * @returns {function} Returns a server middleware closure.
+ */
+function createMiddleware({resourceCollections}) {
+	return function serveIndex(req, res, next) {
+		log.verbose("\n Listing index of " +req.path);
+		let glob = req.path + (req.path.endsWith("/") ? "*" : "/*");
+		resourceCollections.combo.byGlob(glob, {nodir: false}).then((resources) => {
+			if (!resources) { // Not found
+				next();
+				return;
+			}
+
+			res.writeHead(200, {
+				"Content-Type": "text/html"
+			});
+
+			let resourceInfos = createResourceInfos(resources);
+			res.end(createContent(req.path, resourceInfos));
+		}).catch((err) => {
+			next(err);
+		});
+	};
+}
+
+module.exports = createMiddleware;
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -374,7 +210,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 10 2018 12:44:40 GMT+0000 (UTC) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 10 2018 12:44:39 GMT+0000 (UTC) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
