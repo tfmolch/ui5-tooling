@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>fs/lib/adapters/AbstractAdapter.js - UI5 Build and Development Tooling - API Reference</title>
+    <title>fs/index.js - UI5 Build and Development Tooling - API Reference</title>
     
     <meta name="description" content="UI5 Build and Development Tooling - API Reference" />
     
@@ -39,7 +39,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">fs/lib/adapters/AbstractAdapter.js</h1>
+    <h1 class="page-title">fs/index.js</h1>
     
 
     
@@ -49,130 +49,31 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const log = require("@ui5/logger").getLogger("resources:adapters:AbstractAdapter");
-const minimatch = require("minimatch");
-const AbstractReaderWriter = require("../AbstractReaderWriter");
-
-/**
- * Abstract Resource Adapter
- *
- * @abstract
+            <pre class="prettyprint source linenums"><code>/**
+ * @module @ui5/fs
  * @public
- * @memberof module:@ui5/fs.adapters
- * @augments module:@ui5/fs.AbstractReaderWriter
  */
-class AbstractAdapter extends AbstractReaderWriter {
+module.exports = {
 	/**
-	 * The constructor
-	 *
 	 * @public
-	 * @param {Object} parameters Parameters
-	 * @param {string} parameters.virBasePath Virtual base path
+	 * @see module:@ui5/fs.adapters.AbstractAdapter
+	 * @see module:@ui5/fs.adapters.FileSystem
+	 * @see module:@ui5/fs.adapters.Memory
 	 */
-	constructor({virBasePath, project}) {
-		if (new.target === AbstractAdapter) {
-			throw new TypeError("Class 'AbstractAdapter' is abstract");
-		}
-		super();
-		this._virBasePath = virBasePath;
-		this._virBaseDir = virBasePath.slice(0, -1);
-		this._project = project;
-	}
-
-	/**
-	 * Locates resources by GLOB.
-	 *
-	 * @abstract
-	 * @private
-	 * @param {string|Array} virPattern GLOB pattern as string or an array of
-	 *         glob patterns for virtual directory structure
-	 * @param {Object} [options={}] GLOB options
-	 * @param {boolean} [options.nodir=true] Do not match directories
-	 * @param {module:@ui5/fs.tracing.Trace} trace Trace instance
-	 * @returns {Promise&lt;module:@ui5/fs.Resource[]>} Promise resolving to list of resources
-	 */
-	_byGlob(virPattern, options = {nodir: true}, trace) {
-		if (!(virPattern instanceof Array)) {
-			virPattern = [virPattern];
-		}
-		return Promise.all(virPattern.map(this._normalizePattern, this)).then((patterns) => {
-			if (patterns.length === 0) {
-				return [];
-			}
-			patterns = Array.prototype.concat.apply([], patterns);
-			return this._runGlob(patterns, options, trace);
-		});
-	}
-
-	/**
-	 * Normalizes virtual GLOB patterns.
-	 *
-	 * @private
-	 * @param {string} virPattern GLOB pattern for virtual directory structure
-	 * @returns {Promise&lt;string[]>} Promise resolving to list of normalized GLOB patterns
-	 */
-	_normalizePattern(virPattern) {
-		return Promise.resolve().then(() => {
-			const mm = new minimatch.Minimatch(virPattern);
-
-			const basePathParts = this._virBaseDir.split("/");
-
-			function matchSubset(subset) {
-				let i;
-				for (i = 0; i &lt; basePathParts.length; i++) {
-					const globPart = subset[i];
-					if (globPart === undefined) {
-						log.verbose("Ran out of glob parts to match. This should not happen.");
-						return -42;
-					}
-					const basePathPart = basePathParts[i];
-					if (typeof globPart === "string") {
-						if (globPart !== basePathPart) {
-							return -42;
-						} else {
-							continue;
-						}
-					} else if (globPart === minimatch.GLOBSTAR) {
-						return i;
-					} else { // Regex
-						if (!globPart.test(basePathPart)) {
-							return -42;
-						} else {
-							continue;
-						}
-					}
-				}
-				if (subset.length === basePathParts.length) {
-					return -1;
-				}
-				return i;
-			}
-
-			const resultGlobs = [];
-			for (let i = 0; i &lt; mm.set.length; i++) {
-				const matchIdx = matchSubset(mm.set[i]);
-				let resultPattern;
-				if (matchIdx !== -42) {
-					if (matchIdx === -1) { // matched one up
-						resultPattern = ""; // root "/"
-					} else { // matched at some part of the glob
-						resultPattern = mm.globParts[i].slice(matchIdx).join("/");
-						if (resultPattern.startsWith("/")) {
-							resultPattern = resultPattern.substr(1);
-						}
-					}
-					if (mm.negate) {
-						resultPattern = "!" + resultPattern;
-					}
-					resultGlobs.push(resultPattern);
-				}
-			}
-			return resultGlobs;
-		});
-	}
-}
-
-module.exports = AbstractAdapter;
+	adapters: {
+		AbstractAdapter: require("./lib/adapters/AbstractAdapter"),
+		FileSystem: require("./lib/adapters/FileSystem"),
+		Memory: require("./lib/adapters/Memory")
+	},
+	AbstractReader: require("./lib/AbstractReader"),
+	AbstractReaderWriter: require("./lib/AbstractReaderWriter"),
+	DuplexCollection: require("./lib/DuplexCollection"),
+	fsInterface: require("./lib/fsInterface"),
+	ReaderCollection: require("./lib/ReaderCollection"),
+	ReaderCollectionPrioritized: require("./lib/ReaderCollectionPrioritized"),
+	Resource: require("./lib/Resource"),
+	resourceFactory: require("./lib/resourceFactory")
+};
 </code></pre>
         </article>
     </section>

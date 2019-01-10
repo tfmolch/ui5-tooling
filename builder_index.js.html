@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>fs/lib/adapters/AbstractAdapter.js - UI5 Build and Development Tooling - API Reference</title>
+    <title>builder/index.js - UI5 Build and Development Tooling - API Reference</title>
     
     <meta name="description" content="UI5 Build and Development Tooling - API Reference" />
     
@@ -39,7 +39,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">fs/lib/adapters/AbstractAdapter.js</h1>
+    <h1 class="page-title">builder/index.js</h1>
     
 
     
@@ -49,130 +49,64 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const log = require("@ui5/logger").getLogger("resources:adapters:AbstractAdapter");
-const minimatch = require("minimatch");
-const AbstractReaderWriter = require("../AbstractReaderWriter");
-
-/**
- * Abstract Resource Adapter
- *
- * @abstract
+            <pre class="prettyprint source linenums"><code>/**
+ * @module @ui5/builder
  * @public
- * @memberof module:@ui5/fs.adapters
- * @augments module:@ui5/fs.AbstractReaderWriter
  */
-class AbstractAdapter extends AbstractReaderWriter {
+module.exports = {
+	builder: require("./lib/builder/builder"),
 	/**
-	 * The constructor
-	 *
 	 * @public
-	 * @param {Object} parameters Parameters
-	 * @param {string} parameters.virBasePath Virtual base path
+	 * @see module:@ui5/builder.processors
+	 * @namespace
 	 */
-	constructor({virBasePath, project}) {
-		if (new.target === AbstractAdapter) {
-			throw new TypeError("Class 'AbstractAdapter' is abstract");
-		}
-		super();
-		this._virBasePath = virBasePath;
-		this._virBaseDir = virBasePath.slice(0, -1);
-		this._project = project;
-	}
-
+	processors: {
+		flexChangesBundler: require("./lib/processors/bundlers/flexChangesBundler"),
+		manifestBundler: require("./lib/processors/bundlers/manifestBundler"),
+		moduleBundler: require("./lib/processors/bundlers/moduleBundler"),
+		bootstrapHtmlTransformer: require("./lib/processors/bootstrapHtmlTransformer"),
+		debugFileCreator: require("./lib/processors/debugFileCreator"),
+		resourceCopier: require("./lib/processors/resourceCopier"),
+		stringReplacer: require("./lib/processors/stringReplacer"),
+		themeBuilder: require("./lib/processors/themeBuilder"),
+		uglifier: require("./lib/processors/uglifier"),
+		versionInfoGenerator: require("./lib/processors/versionInfoGenerator")
+	},
 	/**
-	 * Locates resources by GLOB.
-	 *
-	 * @abstract
-	 * @private
-	 * @param {string|Array} virPattern GLOB pattern as string or an array of
-	 *         glob patterns for virtual directory structure
-	 * @param {Object} [options={}] GLOB options
-	 * @param {boolean} [options.nodir=true] Do not match directories
-	 * @param {module:@ui5/fs.tracing.Trace} trace Trace instance
-	 * @returns {Promise&lt;module:@ui5/fs.Resource[]>} Promise resolving to list of resources
+	 * @public
+	 * @see module:@ui5/builder.tasks
+	 * @namespace
 	 */
-	_byGlob(virPattern, options = {nodir: true}, trace) {
-		if (!(virPattern instanceof Array)) {
-			virPattern = [virPattern];
-		}
-		return Promise.all(virPattern.map(this._normalizePattern, this)).then((patterns) => {
-			if (patterns.length === 0) {
-				return [];
-			}
-			patterns = Array.prototype.concat.apply([], patterns);
-			return this._runGlob(patterns, options, trace);
-		});
-	}
-
+	tasks: {
+		generateComponentPreload: require("./lib/tasks/bundlers/generateComponentPreload"),
+		generateFlexChangesBundle: require("./lib/tasks/bundlers/generateFlexChangesBundle"),
+		generateLibraryPreload: require("./lib/tasks/bundlers/generateLibraryPreload"),
+		generateManifestBundle: require("./lib/tasks/bundlers/generateManifestBundle"),
+		generateStandaloneAppBundle: require("./lib/tasks/bundlers/generateStandaloneAppBundle"),
+		generateBundle: require("./lib/tasks/bundlers/generateBundle"),
+		buildThemes: require("./lib/tasks/buildThemes"),
+		createDebugFiles: require("./lib/tasks/createDebugFiles"),
+		generateVersionInfo: require("./lib/tasks/generateVersionInfo"),
+		replaceCopyright: require("./lib/tasks/replaceCopyright"),
+		replaceVersion: require("./lib/tasks/replaceVersion"),
+		transformBootstrapHtml: require("./lib/tasks/transformBootstrapHtml"),
+		uglify: require("./lib/tasks/uglify"),
+		taskRepository: require("./lib/tasks/taskRepository")
+	},
 	/**
-	 * Normalizes virtual GLOB patterns.
-	 *
 	 * @private
-	 * @param {string} virPattern GLOB pattern for virtual directory structure
-	 * @returns {Promise&lt;string[]>} Promise resolving to list of normalized GLOB patterns
+	 * @see module:@ui5/builder.types
+	 * @namespace
 	 */
-	_normalizePattern(virPattern) {
-		return Promise.resolve().then(() => {
-			const mm = new minimatch.Minimatch(virPattern);
-
-			const basePathParts = this._virBaseDir.split("/");
-
-			function matchSubset(subset) {
-				let i;
-				for (i = 0; i &lt; basePathParts.length; i++) {
-					const globPart = subset[i];
-					if (globPart === undefined) {
-						log.verbose("Ran out of glob parts to match. This should not happen.");
-						return -42;
-					}
-					const basePathPart = basePathParts[i];
-					if (typeof globPart === "string") {
-						if (globPart !== basePathPart) {
-							return -42;
-						} else {
-							continue;
-						}
-					} else if (globPart === minimatch.GLOBSTAR) {
-						return i;
-					} else { // Regex
-						if (!globPart.test(basePathPart)) {
-							return -42;
-						} else {
-							continue;
-						}
-					}
-				}
-				if (subset.length === basePathParts.length) {
-					return -1;
-				}
-				return i;
-			}
-
-			const resultGlobs = [];
-			for (let i = 0; i &lt; mm.set.length; i++) {
-				const matchIdx = matchSubset(mm.set[i]);
-				let resultPattern;
-				if (matchIdx !== -42) {
-					if (matchIdx === -1) { // matched one up
-						resultPattern = ""; // root "/"
-					} else { // matched at some part of the glob
-						resultPattern = mm.globParts[i].slice(matchIdx).join("/");
-						if (resultPattern.startsWith("/")) {
-							resultPattern = resultPattern.substr(1);
-						}
-					}
-					if (mm.negate) {
-						resultPattern = "!" + resultPattern;
-					}
-					resultGlobs.push(resultPattern);
-				}
-			}
-			return resultGlobs;
-		});
+	types: {
+		AbstractBuilder: require("./lib/types/AbstractBuilder"),
+		AbstractFormatter: require("./lib/types/AbstractFormatter"),
+		application: require("./lib/types/application/applicationType"),
+		library: require("./lib/types/library/libraryType"),
+		typeRepository: require("./lib/types/typeRepository")
 	}
-}
+};
 
-module.exports = AbstractAdapter;
 </code></pre>
         </article>
     </section>

@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>fs/lib/adapters/AbstractAdapter.js - UI5 Build and Development Tooling - API Reference</title>
+    <title>builder - UI5 Build and Development Tooling - API Reference</title>
     
     <meta name="description" content="UI5 Build and Development Tooling - API Reference" />
     
@@ -39,143 +39,598 @@
 
 <div id="main">
     
-    <h1 class="page-title">fs/lib/adapters/AbstractAdapter.js</h1>
+    <h1 class="page-title">builder</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>const log = require("@ui5/logger").getLogger("resources:adapters:AbstractAdapter");
-const minimatch = require("minimatch");
-const AbstractReaderWriter = require("../AbstractReaderWriter");
+        <h2>
+            <span class="ancestors"><a href="module-@ui5_builder.html">@ui5/builder</a>.</span>
+        
+        builder
+        </h2>
+        
+    
+</header>
 
-/**
- * Abstract Resource Adapter
- *
- * @abstract
- * @public
- * @memberof module:@ui5/fs.adapters
- * @augments module:@ui5/fs.AbstractReaderWriter
- */
-class AbstractAdapter extends AbstractReaderWriter {
-	/**
-	 * The constructor
-	 *
-	 * @public
-	 * @param {Object} parameters Parameters
-	 * @param {string} parameters.virBasePath Virtual base path
-	 */
-	constructor({virBasePath, project}) {
-		if (new.target === AbstractAdapter) {
-			throw new TypeError("Class 'AbstractAdapter' is abstract");
-		}
-		super();
-		this._virBasePath = virBasePath;
-		this._virBaseDir = virBasePath.slice(0, -1);
-		this._project = project;
-	}
+<article>
+    
+        <div class="container-overview">
+        
+            
 
-	/**
-	 * Locates resources by GLOB.
-	 *
-	 * @abstract
-	 * @private
-	 * @param {string|Array} virPattern GLOB pattern as string or an array of
-	 *         glob patterns for virtual directory structure
-	 * @param {Object} [options={}] GLOB options
-	 * @param {boolean} [options.nodir=true] Do not match directories
-	 * @param {module:@ui5/fs.tracing.Trace} trace Trace instance
-	 * @returns {Promise&lt;module:@ui5/fs.Resource[]>} Promise resolving to list of resources
-	 */
-	_byGlob(virPattern, options = {nodir: true}, trace) {
-		if (!(virPattern instanceof Array)) {
-			virPattern = [virPattern];
-		}
-		return Promise.all(virPattern.map(this._normalizePattern, this)).then((patterns) => {
-			if (patterns.length === 0) {
-				return [];
-			}
-			patterns = Array.prototype.concat.apply([], patterns);
-			return this._runGlob(patterns, options, trace);
-		});
-	}
+<dl class="details">
 
-	/**
-	 * Normalizes virtual GLOB patterns.
-	 *
-	 * @private
-	 * @param {string} virPattern GLOB pattern for virtual directory structure
-	 * @returns {Promise&lt;string[]>} Promise resolving to list of normalized GLOB patterns
-	 */
-	_normalizePattern(virPattern) {
-		return Promise.resolve().then(() => {
-			const mm = new minimatch.Minimatch(virPattern);
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="builder_lib_builder_builder.js.html">builder/lib/builder/builder.js</a>, <a href="builder_lib_builder_builder.js.html#line113">line 113</a>
+    </li></ul></dd>
+    
 
-			const basePathParts = this._virBaseDir.split("/");
+    
 
-			function matchSubset(subset) {
-				let i;
-				for (i = 0; i &lt; basePathParts.length; i++) {
-					const globPart = subset[i];
-					if (globPart === undefined) {
-						log.verbose("Ran out of glob parts to match. This should not happen.");
-						return -42;
-					}
-					const basePathPart = basePathParts[i];
-					if (typeof globPart === "string") {
-						if (globPart !== basePathPart) {
-							return -42;
-						} else {
-							continue;
-						}
-					} else if (globPart === minimatch.GLOBSTAR) {
-						return i;
-					} else { // Regex
-						if (!globPart.test(basePathPart)) {
-							return -42;
-						} else {
-							continue;
-						}
-					}
-				}
-				if (subset.length === basePathParts.length) {
-					return -1;
-				}
-				return i;
-			}
+    
 
-			const resultGlobs = [];
-			for (let i = 0; i &lt; mm.set.length; i++) {
-				const matchIdx = matchSubset(mm.set[i]);
-				let resultPattern;
-				if (matchIdx !== -42) {
-					if (matchIdx === -1) { // matched one up
-						resultPattern = ""; // root "/"
-					} else { // matched at some part of the glob
-						resultPattern = mm.globParts[i].slice(matchIdx).join("/");
-						if (resultPattern.startsWith("/")) {
-							resultPattern = resultPattern.substr(1);
-						}
-					}
-					if (mm.negate) {
-						resultPattern = "!" + resultPattern;
-					}
-					resultGlobs.push(resultPattern);
-				}
-			}
-			return resultGlobs;
-		});
-	}
-}
+    
 
-module.exports = AbstractAdapter;
-</code></pre>
-        </article>
-    </section>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+            
+                <div class="description">Builder</div>
+            
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".build"><span class="type-signature">(static) </span>build<span class="signature">(parameters)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="builder_lib_builder_builder.js.html">builder/lib/builder/builder.js</a>, <a href="builder_lib_builder_builder.js.html#line131">line 131</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Configures the project build and starts it.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>parameters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Parameters
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tree</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Dependency tree</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>destPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Target path</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>buildDependencies</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>false</code>
+                
+                </td>
+            
+
+            <td class="description last">Decides whether project dependencies are built as well</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dev</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>false</code>
+                
+                </td>
+            
+
+            <td class="description last">Decides whether a development build should be activated (skips non-essential and time-intensive tasks)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>selfContained</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>false</code>
+                
+                </td>
+            
+
+            <td class="description last">Flag to activate self contained build</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>includedTasks</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>[]</code>
+                
+                </td>
+            
+
+            <td class="description last">List of tasks to be included</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>excludedTasks</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>[]</code>
+                
+                </td>
+            
+
+            <td class="description last">List of tasks to be excluded. If the wildcard '*' is provided, only the included tasks will be executed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>devExcludeProject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>[]</code>
+                
+                </td>
+            
+
+            <td class="description last">List of projects to be excluded from development build</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Promise resolving to <code>undefined</code> once build has finished
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
