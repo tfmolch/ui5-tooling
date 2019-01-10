@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>lib/AbstractReader.js - UI5 Build and Development Tooling - API Reference</title>
+    
+    <meta name="description" content="UI5 Build and Development Tooling - API Reference" />
+    
+        <meta name="keywords" content="openui5 sapui5 ui5 build development tool api reference" />
+        <meta name="keyword" content="openui5 sapui5 ui5 build development tool api reference" />
+    
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav class="wrap">
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/SAP/ui5-tooling" target="_blank" class="menu-item" id="github_link" >GitHub</a></h2><h3>Modules</h3><ul><li><a href="module-@ui5_fs.html">@ui5/fs</a><ul class='methods'><li data-type='method'><a href="module-@ui5_fs.html#.fsInterface">fsInterface</a></li></ul></li></ul><h3>Namespaces</h3><ul><li><a href="module-@ui5_fs.resourceFactory.html">@ui5/fs.resourceFactory</a><ul class='methods'><li data-type='method'><a href="module-@ui5_fs.resourceFactory.html#.createAdapter">createAdapter</a></li><li data-type='method'><a href="module-@ui5_fs.resourceFactory.html#.createCollectionsForTree">createCollectionsForTree</a></li><li data-type='method'><a href="module-@ui5_fs.resourceFactory.html#.createResource">createResource</a></li><li data-type='method'><a href="module-@ui5_fs.resourceFactory.html#.createWorkspace">createWorkspace</a></li></ul></li></ul><h3>Classes</h3><ul><li><a href="module-@ui5_fs.AbstractReader.html">@ui5/fs.AbstractReader</a><ul class='methods'><li data-type='method'><a href="module-@ui5_fs.AbstractReader.html#byGlob">byGlob</a></li><li data-type='method'><a href="module-@ui5_fs.AbstractReader.html#byPath">byPath</a></li></ul></li><li><a href="module-@ui5_fs.AbstractReaderWriter.html">@ui5/fs.AbstractReaderWriter</a><ul class='methods'><li data-type='method'><a href="module-@ui5_fs.AbstractReaderWriter.html#byGlob">byGlob</a></li><li data-type='method'><a href="module-@ui5_fs.AbstractReaderWriter.html#byPath">byPath</a></li><li data-type='method'><a href="module-@ui5_fs.AbstractReaderWriter.html#write">write</a></li></ul></li><li><a href="module-@ui5_fs.adapters.AbstractAdapter.html">@ui5/fs.adapters.AbstractAdapter</a><ul class='methods'><li data-type='method'><a href="module-@ui5_fs.adapters.AbstractAdapter.html#byGlob">byGlob</a></li><li data-type='method'><a href="module-@ui5_fs.adapters.AbstractAdapter.html#byPath">byPath</a></li><li data-type='method'><a href="module-@ui5_fs.adapters.AbstractAdapter.html#write">write</a></li></ul></li><li><a href="module-@ui5_fs.adapters.FileSystem.html">@ui5/fs.adapters.FileSystem</a><ul class='methods'><li data-type='method'><a href="module-@ui5_fs.adapters.FileSystem.html#byGlob">byGlob</a></li><li data-type='method'><a href="module-@ui5_fs.adapters.FileSystem.html#byPath">byPath</a></li><li data-type='method'><a href="module-@ui5_fs.adapters.FileSystem.html#write">write</a></li></ul></li><li><a href="module-@ui5_fs.adapters.Memory.html">@ui5/fs.adapters.Memory</a><ul class='methods'><li data-type='method'><a href="module-@ui5_fs.adapters.Memory.html#byGlob">byGlob</a></li><li data-type='method'><a href="module-@ui5_fs.adapters.Memory.html#byPath">byPath</a></li><li data-type='method'><a href="module-@ui5_fs.adapters.Memory.html#write">write</a></li></ul></li><li><a href="module-@ui5_fs.DuplexCollection.html">@ui5/fs.DuplexCollection</a><ul class='methods'><li data-type='method'><a href="module-@ui5_fs.DuplexCollection.html#byGlob">byGlob</a></li><li data-type='method'><a href="module-@ui5_fs.DuplexCollection.html#byPath">byPath</a></li><li data-type='method'><a href="module-@ui5_fs.DuplexCollection.html#write">write</a></li></ul></li><li><a href="module-@ui5_fs.ReaderCollection.html">@ui5/fs.ReaderCollection</a><ul class='methods'><li data-type='method'><a href="module-@ui5_fs.ReaderCollection.html#byGlob">byGlob</a></li><li data-type='method'><a href="module-@ui5_fs.ReaderCollection.html#byPath">byPath</a></li></ul></li><li><a href="module-@ui5_fs.ReaderCollectionPrioritized.html">@ui5/fs.ReaderCollectionPrioritized</a><ul class='methods'><li data-type='method'><a href="module-@ui5_fs.ReaderCollectionPrioritized.html#byGlob">byGlob</a></li><li data-type='method'><a href="module-@ui5_fs.ReaderCollectionPrioritized.html#byPath">byPath</a></li></ul></li><li><a href="module-@ui5_fs.Resource.html">@ui5/fs.Resource</a><ul class='methods'><li data-type='method'><a href="module-@ui5_fs.Resource.html#clone">clone</a></li><li data-type='method'><a href="module-@ui5_fs.Resource.html#getBuffer">getBuffer</a></li><li data-type='method'><a href="module-@ui5_fs.Resource.html#getPath">getPath</a></li><li data-type='method'><a href="module-@ui5_fs.Resource.html#getStatInfo">getStatInfo</a></li><li data-type='method'><a href="module-@ui5_fs.Resource.html#getStream">getStream</a></li><li data-type='method'><a href="module-@ui5_fs.Resource.html#getString">getString</a></li><li data-type='method'><a href="module-@ui5_fs.Resource.html#setBuffer">setBuffer</a></li><li data-type='method'><a href="module-@ui5_fs.Resource.html#setPath">setPath</a></li><li data-type='method'><a href="module-@ui5_fs.Resource.html#setStream">setStream</a></li><li data-type='method'><a href="module-@ui5_fs.Resource.html#setString">setString</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">lib/AbstractReader.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const randomInt = require("random-int");
+const Trace = require("./tracing/Trace");
+
+/**
+ * Abstract resource locator
+ *
+ * @public
+ * @abstract
+ * @memberof module:@ui5/fs
+ */
+class AbstractReader {
+	/**
+	 * The constructor.
+	 *
+	 * @public
+	 */
+	constructor() {
+		if (new.target === AbstractReader) {
+			throw new TypeError("Class 'AbstractReader' is abstract");
+		}
+	}
+
+	/**
+	 * Locates resourcess by GLOB.
+	 *
+	 * @example
+	 * &lt;caption>Example patterns:&lt;/caption>
+	 * // **\u00002F*.{html,htm}
+	 * // **\u00002F.library
+	 * // /pony/*
+	 *
+	 * @public
+	 * @param {string|Array} virPattern GLOB pattern as string or array of glob patterns for virtual directory structure
+	 * @param {Object} [options={}] GLOB options
+	 * @param {boolean} [options.nodir=true] Do not match directories
+	 * @returns {Promise&lt;module:@ui5/fs.Resource[]>} Promise resolving to list of resources
+	 */
+	byGlob(virPattern, options = {nodir: true}) {
+		const trace = new Trace(virPattern);
+		return this._byGlob(virPattern, options, trace).then(function(result) {
+			trace.printReport();
+			return result;
+		}).then((resources) => {
+			if (resources.length > 1) {
+				// Pseudo randomize result order to prevent consumers from relying on it:
+				// Swap the first object with a randomly chosen one
+				const x = 0;
+				const y = randomInt(0, resources.length - 1);
+				// Swap object at index "x" with  "y"
+				resources[x] = [resources[y], resources[y]=resources[x]][0];
+			}
+			return resources;
+		});
+	}
+
+	/**
+	 * Locates resources by path.
+	 *
+	 * @public
+	 * @param {string} virPath Virtual path
+	 * @param {Object} options Options
+	 * @param {boolean} [options.nodir=true] Do not match directories
+	 * @returns {Promise&lt;module:@ui5/fs.Resource>} Promise resolving to a single resource
+	 */
+	byPath(virPath, options = {nodir: true}) {
+		const trace = new Trace(virPath);
+		return this._byPath(virPath, options, trace).then(function(resource) {
+			trace.printReport();
+			return resource;
+		});
+	}
+
+	/**
+	 * Locates resources by GLOB.
+	 *
+	 * @abstract
+	 * @protected
+	 * @param {string} virPattern GLOB pattern for virtual directory structure
+	 * @param {Object} options GLOB options
+	 * @param {module:@ui5/fs.tracing.Trace} trace Trace instance
+	 * @returns {Promise&lt;module:@ui5/fs.Resource[]>} Promise resolving to list of resources
+	 */
+	_byGlob(virPattern, options, trace) {
+		throw new Error("Not implemented");
+	}
+
+	/**
+	 * Locate resources by GLOB
+	 *
+	 * @abstract
+	 * @protected
+	 * @param {string} pattern GLOB pattern
+	 * @param {Object} options GLOB options
+	 * @param {module:@ui5/fs.tracing.Trace} trace Trace instance
+	 * @returns {Promise&lt;module:@ui5/fs.Resource[]>} Promise resolving to list of resources
+	 */
+	_runGlob(pattern, options, trace) {
+		throw new Error("Not implemented");
+	}
+
+	/**
+	 * Locates resources by path.
+	 *
+	 * @abstract
+	 * @protected
+	 * @param {string} virPath Virtual path
+	 * @param {module:@ui5/fs.tracing.Trace} trace Trace instance
+	 * @returns {Promise&lt;module:@ui5/fs.Resource>} Promise resolving to a single resource
+	 */
+	_byPath(virPath, trace) {
+		throw new Error("Not implemented");
+	}
+}
+
+module.exports = AbstractReader;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jan 10 2019 09:44:24 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/jquery-3.1.1.min.js"></script>
+
+<script src="scripts/search.js"></script>
+
+
+
+
+</body>
+</html>
