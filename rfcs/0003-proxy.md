@@ -11,7 +11,7 @@
 
 # RFC 0003 Proxy capabilities of ui5-server
 ## Summary
-Add proxy capabilities to the ui5-server module. It should allow to simulate an applications runtime on a remote system locally.
+Add proxy capabilities to the ui5-server module. It should allow to simulate an application-runtime on a remote system locally.
 
 ## Motivation
 As an application or library developer, I want to be able to develop applications locally and test them in an environment as close to the production environment as possible. Meaning that resources that are not available locally are automatically retrieved from a given remote system.
